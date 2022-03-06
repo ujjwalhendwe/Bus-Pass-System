@@ -1,5 +1,5 @@
 """
-WSGI config for BusPassSystem project.
+WSGI config for bps project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BusPassSystem.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bps.settings')
 
 application = get_wsgi_application()
