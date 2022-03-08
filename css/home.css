@@ -208,7 +208,7 @@ section{
     box-shadow: var(--box-shadow);
     width:35rem;
     
-     width: 20rem;
+     /* width: 20rem; */
      /* height: 1rem; */
     padding: 1rem;
     padding-top: 0.5rem;
