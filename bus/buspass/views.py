@@ -11,6 +11,9 @@ cursor=connection.cursor(buffered=True)
 def register(request):
     return render(request,'register.html')
 
+def signin(request):
+    return render(request,'login.html')
+
 def update(request):
     firstname=request.POST['firstname']
     lastname=request.POST['lastname']
@@ -43,7 +46,7 @@ def login(request):
     cursor.execute("SELECT userid FROM user WHERE userid='{}' and password='{}'".format(Userid,password))
     validate2=cursor.fetchall()
     if len(validate2)>0:
-        return render(request,'home.html')
+        return render(request,'index.html')
     elif len(validate1)>0:
         return render(request,'login.html',{'validpassword':"(Incorrect password)"})
     else:
