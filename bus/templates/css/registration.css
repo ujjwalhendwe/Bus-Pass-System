@@ -1,0 +1,29 @@
+.fa {
+    font-size: 30px;
+    width: 60px;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  /* Add a hover effect if you want */
+  .fa-facebook:hover {
+    opacity: 0.9;
+    color: blue;
+  }
+  
+  .fa-google:hover {
+    opacity: 0.9;
+    color: rgb(105, 176, 197);
+  }
+  
+  /* Set a specific color for each brand */
+  
+  /* Facebook */
+  .fa-facebook {
+    color: white;
+  }
+  
+  /* Twitter */
+  .fa-google {
+    color: white;
+  }
