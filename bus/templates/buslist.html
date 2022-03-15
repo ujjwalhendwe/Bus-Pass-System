@@ -15,7 +15,7 @@
 
 <body>
     <section class="container-fluid px-5 justify-content-center  " style="text-align: center;">
-    <div class="row">
+    {% comment %} <div class="row"> {% endcomment %}
         {% for i in buses%}
             <div class="card col-md m-2 pt-2 pb-3">
                 <div class="name">
@@ -61,7 +61,7 @@
                 </div>
             </div>    
         {% endfor %}
-        <div class="card col-md m-2 pt-2 pb-3">
+        {% comment %} <div class="card col-md m-2 pt-2 pb-3">
             <div class="name">
                 <h5>Indian Travels</h5>
             </div>
@@ -169,7 +169,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> {% endcomment %}
     </section>
 
     <!-- Optional JavaScript -->

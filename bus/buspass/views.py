@@ -61,7 +61,7 @@ def showbus(request):
     date=request.GET['Date']
     cursor.execute("Select routeid from route where startcity='{}' and endcity='{}'".format(startstation,endstation))
     routeid=cursor.fetchall()
-    cursor.execute("select * from bsp join bus join runningpath where routeid='{}' and bus.bspid=bsp.bspid and bus.busid=runningpath.busid".format(routeid[0][0]))
+    cursor.execute("select * from bsp join bus join runningpath join seatavailability where runningpath.routeid='{}' and dateofjourney='{}' and bus.bspid=bsp.bspid and bus.busid=runningpath.busid and seatavailability.busid=bus.busid and seatavailability.routeid=runningpath.routeid".format(routeid[0][0],date))
     buses=cursor.fetchall()
     print(buses)
     return render(request,"buslist.html",{"buses":buses})
