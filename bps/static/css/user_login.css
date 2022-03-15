@@ -1,0 +1,17 @@
+
+      body{
+        background-image: url("https://images.pexels.com/photos/6122260/pexels-photo-6122260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500") ;
+        background-repeat:no-repeat;
+        background-size: cover;
+        color: white;
+        background-position: center;}
+ .dba{
+     border: 0px solid rgb(117, 35, 35);
+     padding: 10px 60px;
+     background-color: white;
+
+
+      -webkit-box-shadow: 13px 2px 85px 54px rgba(0,0,0,0.75);
+-moz-box-shadow: 13px 2px 85px 54px rgba(0,0,0,0.75);
+box-shadow: 13px 2px 85px 54px rgba(0,0,0,0.75);
+ }
