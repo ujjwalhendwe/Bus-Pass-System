@@ -15,8 +15,53 @@
 
 <body>
     <section class="container-fluid px-5 justify-content-center  " style="text-align: center;">
-    <div class="row">
-        <div class="card col-md m-2 pt-2 pb-3">
+    {% comment %} <div class="row"> {% endcomment %}
+        {% for i in buses%}
+            <div class="card col-md m-2 pt-2 pb-3">
+                <div class="name">
+                    <h5>{{i.1}}</h5>
+                </div>
+                <div class="text-muted">
+                    {% ifequal i.11 1 %}
+                        <h6>AC<h6>
+                    {% else %}
+                        <h6>Non-AC<h6>
+                    {% endifequal %}
+                    {% ifequal i.12 1 %}
+                        <h6>Sleeper<h6>
+                    {% endifequal %}
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-sm">
+                        <h6>{{i.19}}</h6>
+                    </div>
+                    <div class="col-sm">
+                        <p class="text-muted pt-1">12h 0m</p>
+                    </div>
+                    <div class="col-sm">
+                        <h6>{{i.22}}</h6>
+                    </div>
+                </div>
+                <div class="rating">
+                    
+                </div>
+                <div class="seat-selection">
+                    <a href="#" class="seats">View seats</a>
+                </div>
+                <div class="row amenrev mt-3">
+                    <div class="col-md">
+                        <a href="#" class="Amenities">Amenities</a>
+                    </div>
+                    <div class="col-md">
+                        <a href="#" class="More">More</a>
+                    </div>
+                    <div class="col-md">
+                        <a href="#" class="Reviews">Reviews</a>
+                    </div>
+                </div>
+            </div>    
+        {% endfor %}
+        {% comment %} <div class="card col-md m-2 pt-2 pb-3">
             <div class="name">
                 <h5>Indian Travels</h5>
             </div>
@@ -124,7 +169,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> {% endcomment %}
     </section>
 
     <!-- Optional JavaScript -->
