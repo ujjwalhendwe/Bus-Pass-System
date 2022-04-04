@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./static/checkout.css">
+    <link rel="stylesheet" href="./js/checkout.js">
+    <title>Hello, world!</title>
+    <style>
+        .Payment:hover{
+    transform: scale(1.003);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .05), 0 4px 8px rgba(0, 0, 0, .04);
+}
+        .Wallet:hover{
+    transform: scale(1.003);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .05), 0 4px 8px rgba(0, 0, 0, .04);
+}
+    </style>
+</head>
+
+<body>
+    <!-- Optional JavaScript; choose one of the two! -->
+    <div class="container ">
+        <div class="row justify-content-center my-4">
+            <div class="Payment col-md-5  mb-4 rounded" style="background-color:rgb(95, 71, 71) ;">
+                <!-- <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Your cart</span>
+                    <span class="badge badge-secondary badge-pill">3</span>
+                </h4> -->
+                <h4 style="color: aliceblue; padding-top: 10px; padding-bottom: 8px;">Payment Details</h4>
+                <ul class="list-group mb-3 sticky-top">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Bus fare</h6>
+                            <small class="text-muted">L1</small>
+                        </div>
+                        <span class="text-muted">$12</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Tax</h6>
+                            <small class="text-muted">Brief description</small>
+                        </div>
+                        <span class="text-muted">$8</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Convenience fee</h6>
+                            <small class="text-muted">Brief description</small>
+                        </div>
+                        <span class="text-muted">$5</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <div class="text-success">
+                            <h6 class="my-0">Promo code</h6>
+                            <small>EXAMPLECODE</small>
+                        </div>
+                        <span class="text-success">-$5</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Total fare</span>
+                        <strong>$20</strong>
+                    </li>
+                </ul>
+                <form class="card p-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Promo code">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-secondary">Redeem</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="submit my-3" style="text-align: center;">
+                    <button type="submit" class="btn btn-primary btn-lg">CHECK OUT</button>
+                </div>
+            </div>
+            <div class="col-md mx-3">
+                <div class="Wallet rounded px-3 pt-3 pb-3" style="background-color:rgb(95, 71, 71,0.9) ; margin-top: 100px;">
+                    <h4 style="text-align: center; color: rgb(250, 222, 185);">Wallet Details</h4>
+                    <div class="row " style="color: rgb(252, 241, 241);">
+                        <div class="col-sm">
+                            <h5>User ID</h5>
+                        </div>
+                        <div class="col-sm">
+                            <h6 style="text-align: end;">1232545</h6>
+                        </div>
+                        <hr style="color: white;">
+                    </div>
+                    <div class="row " style="color: rgb(252, 241, 241);">
+                        <div class="col-sm">
+                            <h5>Wallet ID</h5>
+                        </div>
+                        <div class="col-sm">
+                            <h6 style="text-align: end;">1232545</h6>
+                        </div>
+                        <hr style="color: white;">
+                    </div>
+                    <div class="row " style="color: rgb(252, 241, 241);">
+                        <div class="col-sm">
+                            <h5>Wallet Balance</h5>
+                        </div>
+                        <div class="col-sm">
+                            <h6 style="text-align: end;">1232545Rs</h6>
+                        </div>
+                        <hr style="color: white;">
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-success btn-lg">Wallet TopUp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">© 2017-2019 Company Name</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer> -->
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
