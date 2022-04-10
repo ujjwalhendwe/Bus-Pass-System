@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body{
+    font-family: 'Roboto',sans-serif;
+    background-image: url("https://images.pexels.com/photos/7058459/pexels-photo-7058459.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500") no-repeat center center;
+    background-size: cover;
+}
+.model-dialog{
+    text-align: center;
+}
+.main-section{
+    margin-top: 130px;
+}
+.model-content{
+    background-color: #3b4652;
+    opacity: 0.95;
+    border-radius: 5px;
+    padding: 0 18px;
+    box-shadow: 0px 0px 3px #848484;
+}
+.user-img img{
+    margin-top: -50px;
+    margin-bottom: 20px;
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+}
+.form-group input{
+    padding-left: 44px;
+    font-size: 17px;
+    font-family: 'Roboto',sans-serif;
+}
+.form-groupp input{
+    font-size: 17px;
+    padding-left: 44px;
+    font-family: 'Roboto',sans-serif;
+}
+.form-group::before {
+    font-family: 'Font Awesome\ 5 Free';
+    content:"\f007";
+    position:absolute;
+    font-size: 22px;
+    color:#555e60;
+    left:68px;
+    padding-top: 2px;
+}
+.form-groupp::before{
+    content:"\f023";
+    font-family: 'Font Awesome\ 5 Free';
+    position:absolute;
+    font-size: 22px;
+    color:#555e60;
+    left:68px;
+    padding-top: 2px;
+}
