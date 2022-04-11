@@ -1,0 +1,47 @@
+body{
+    background-color: rgb(252, 244, 235,0.3);
+}
+.seats{
+    padding: 3px 5px;
+    background-color: rgb(180, 26, 26);
+    border-radius: 3px;
+    color: white;
+}
+.card{
+    transition-property: text;
+    transition-duration: 2s;
+}
+.card:hover{
+    transform: scale(1.03);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+a.seats{
+    text-decoration: none;
+}
+a.seats:hover{
+    color:white;
+    text-decoration: none;
+}
+.seats:active{
+    background-color: rgb(241, 13, 13);
+}
+a.More:hover{
+ color: red     ;
+}
+a.Reviews:hover{
+    color: red     ;
+   }
+
+a.Amenities:hover{
+    color: red     ;
+   }
+a.More:active{
+ color: grey     ;
+}
+a.Reviews:active{
+    color: grey    ;
+   }
+
+a.Amenities:active{
+    color: grey     ;
+   }

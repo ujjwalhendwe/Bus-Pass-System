@@ -1,54 +1,73 @@
-{% extends "account/base.html" %}
-
 {% load i18n %}
 {% load account socialaccount %}
-
 {% load crispy_forms_filters %}
+{% load static %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+<!doctype html>
+<html lang="en">
 
-{% block content %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <div class="text-center">
-    <h1>{% trans "Sign In" %}</h1>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{% static './css/user_login.css' %}">
+</head>
 
-    {% get_providers as socialaccount_providers %}
+<body style="color:black">
 
-    {% if socialaccount_providers %}
-    <p>{% blocktrans with site.name as site_name %}Please sign in with one
-    of your existing third party accounts.<br>Or, <a href="{{ signup_url }}">sign up</a>
-    for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-    <div class="socialaccount_ballot">
-
-      <div class="socialaccount_providers">
-        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-      </div>
-
-      <div class="login-or border-top border-bottom my-3">{% trans 'OR' %}</div>
-
-    </div>
-
-    {% include "socialaccount/snippets/login_extra.html" %}
-
-    {% else %}
-    <p>{% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-    {% endif %}
-  </div>
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
+  <div class="cont">
+    <div class="form sign-in">
+      <h2>Sign In through Account</h2>
+      
       <form class="login" method="POST" action="{% url 'account_login' %}">
-          {% csrf_token %}
-          {{ form|crispy }}
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
-          <div class="d-grid">
-            <button class="primaryAction mt-3 btn btn-dark" type="submit">{% trans "Sign In" %}</button><br>
-            <a class="button secondaryAction text-dark text-center" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-          </div>
-        </form>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="d-grid">
+          <button class="primaryAction submit" type="submit">{% trans "Sign In" %}</button><br>
+          <a class="button secondaryAction text-dark text-center" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+        </div>
+      </form>
+      
+    </div>
+
+    <div class="sub-cont">
+      <div class="img">
+        <div class="img__text m--up">
+          <h2>No account?</h2>
+          <p>Sign In through your social media accounts</p>
+        </div>
+        <div class="img__text m--in">
+          <h2>Have an account?</h2>
+          <p>Just sign in. We've missed you!</p>
+        </div>
+        <div class="img__btn">
+          <span class="m--up">Sign Up</span>
+          <span class="m--in">Sign In</span>
+        </div>
+      </div>
+      <div class="form sign-up">
+        <button class="fb-btn" ><a style="text-decoration: none;" href="/accounts/google/login/?process=login"><span>Join with google</span></a></button>
+        <button class="fb-btn" ><a style="text-decoration: none;" href="/accounts/facebook/login/?process=login"><span>Join with facebook</span></a></button>
+      </div>
     </div>
   </div>
-{% endblock %}
+  
+  <a href="https://dribbble.com/shots/3306190-Login-Registration-form" target="_blank" class="icon-link">
+    <img src="http://icons.iconarchive.com/icons/uiconstock/socialmedia/256/Dribbble-icon.png">
+  </a>
+  <a href="https://twitter.com/NikolayTalanov" target="_blank" class="icon-link icon-link--twitter">
+    <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png">
+  </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+        <script src="{% static './js/user_login.js' %}"></script>
+</body>
+
+</html>
