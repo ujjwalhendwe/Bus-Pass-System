@@ -171,6 +171,9 @@
                     {% csrf_token %}
                     <input type="text" name="seats" style="display: none;" id="selseat">
                     <input type="text" name="price" style="display: none;" id="selprice">
+                    <input type="text" name="routeid" style="display: none;" value="{{routeid}}">
+                    <input type="text" name="busid" style="display: none;" value="{{busid}}">
+                    <input type="text" name="date" style="display: none;" value="{{date}}">
                     <button class="checkout-button" type="submit">Checkout &raquo;</button>
                 </form>
                 <div id="legend"></div>

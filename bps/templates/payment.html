@@ -63,7 +63,15 @@
                     </li>
                 </ul>
                 <div class="submit my-3" style="text-align: center;">
+                    <form action="/passenger" method="post">
+                        {% csrf_token %}
+                        <input type="text" style="display: none;" name="seats" value="{{seats}}">
+                        <input type="text" style="display: none;" name="pricef" value="{{pricef}}">
+                        <input type="text" name="routeid" style="display: none;" value="{{routeid}}">
+                    <input type="text" name="busid" style="display: none;" value="{{busid}}">
+                    <input type="text" name="date" style="display: none;" value="{{date}}">
                     <button type="submit" class="btn btn-primary btn-lg">CHECK OUT</button>
+                </form>
                 </div>
             </div>
             <div class="col-md mx-3">

@@ -26,6 +26,14 @@
 
 <body>
 
+    {% if messages %}
+        {% for message in messages %}
+        <script>
+            alert('{{ message }}');
+        </script>
+        {% endfor %}
+    {% endif %}
+
 
     <section class="banner" id="top">
         <div class="container">
@@ -737,6 +745,8 @@
             };
         }
     </script>
+
+<script>
 </body>
 
 </html>

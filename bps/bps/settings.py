@@ -38,7 +38,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'bps.urls'
 
 TEMPLATES = [
@@ -133,6 +132,10 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
@@ -145,10 +148,16 @@ STATICFILES_DIRS= [
    STATIC_DIR,
 ]
 
-ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 
 ACCOUNT_EMAIL_REQUIRED = True
 
 SOCIALACCOUNT_QUERY_EMAIL = True
 
 ACCOUNT_SESSION_REMEMBER = True
+
+SOCIALACCOUNT_LOGIN_ON_GET =True
+
+ACCOUNT_SIGNUP_REDIRECT_URL='/'
+
+ACCOUNT_LOGIN_REDIRECT_URL='/'

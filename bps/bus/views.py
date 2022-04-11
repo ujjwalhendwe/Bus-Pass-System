@@ -1,8 +1,10 @@
+from email import message
 from tracemalloc import start
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
 import MySQLdb.cursors
 from datetime import datetime,time
+from django.contrib import messages
 
 import mysql.connector
 from numpy import diff
@@ -138,6 +140,20 @@ def home(request):
 
 
 def buslist(request):
+
+    if not request.user.is_authenticated:
+        messages.info(request, 'Login before booking tickets')
+        return redirect('/')
+
+    user=str(request.user)   
+
+    cursor.execute(''' select userid from user where userid=%s''',(user,))
+    log=cursor.fetchone()
+
+    if log == None:
+        cursor.execute(''' insert into user(userid,name) values(%s,%s)''',(request.user.get_username(),request.user.get_full_name()))
+        connection.commit()
+
     dep=request.POST['dep']
     arr=request.POST['arr']
     date=str(request.POST['date'])
@@ -157,9 +173,7 @@ def buslist(request):
     for index,bus in enumerate(temp1):
         temp2=list(bus)
         d=str(temp2[27])
-        #temp2[27]=str(temp2[27])
         temp2.append(d)
-        print(type(temp2[31]))
         temp3=tuple(temp2)
         temp1[index]=temp3
 
@@ -188,15 +202,48 @@ def seat(request):
 
     print(seats)
 
-    return render(request, "seat.html", {"seats":seats})
+    return render(request, "seat.html", {"seats":seats,"routeid":routeid,"busid":busid,"date":date})
 
 
 def payment(request):
     seats=request.POST['seats']
     price=request.POST['price']
+    routeid=request.POST['routeid']
+    busid=request.POST['busid']
+    date=request.POST['date']
     pricef=int(price)
     pricef=pricef+100
     print(seats)
 
-    return render(request, "payment.html",{"seats":seats, "price":price, "pricef":pricef})
+    return render(request, "payment.html",{"seats":seats, "price":price, "pricef":pricef,"routeid":routeid,"busid":busid,"date":date})
+
+def passenger(request):
+    pricef=request.POST['pricef']
+    seat=request.POST['seats']
+    routeid=request.POST['routeid']
+    busid=request.POST['busid']
+    date=request.POST['date']
+
+    n=len(seat)
+    n=n+1
+    n=n/4
+    n=int(n)
+
+    temp=[]
+    j=1
+
+    for i in range(len(seat)):
+       if seat[i]=='_':
+           st=seat[i-1]+seat[i]+seat[i+1]
+           temp1=[j,st]
+           temp.append(tuple(temp1))
+           j=j+1
+
+    seats=tuple(temp)
+    print(seats)       
+
+    return render(request,"passenger.html",{"seats":seats,"pricef":pricef, "price":pricef,"routeid":routeid,"busid":busid,"date":date})
+
+
+
 
