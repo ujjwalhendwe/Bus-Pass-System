@@ -10,6 +10,7 @@ urlpatterns = [
     path('trackbus',views.trackbus),
     path('',views.home),
     path('buslist', views.buslist),
-    path('seat', views.seat)
+    path('seat', views.seat),
+    path('payment',views.payment)
 
 ]

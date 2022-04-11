@@ -47,10 +47,11 @@
                     
                 </div>
                 <div class="seat-selection">
-                    <form method="post" action="/seats">
+                    <form method="post" action="/seat">
+                        {% csrf_token %}
                         <input type="text" style="display: none;" name="routeid" value="{{i.18}}">
                         <input type="text" style="display: none;" name="busid" value="{{i.7}}">
-                        <input type="text" style="display: none;" name="date" value="{{i.27}}">
+                        <input type="text" style="display: none;" name="date" value="{{i.31}}">
                     <button type="submit" class="seats" style="cursor: pointer;">View seats</a>
                     </form>
                 </div>

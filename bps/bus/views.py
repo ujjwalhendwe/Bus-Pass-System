@@ -150,14 +150,53 @@ def buslist(request):
     buslist=cursor.fetchall()
 
     cursor.execute('''select * from bsp join bus join runningpath join seatavailability where runningpath.routeid=%s and dateofjourney='{}' and bus.bspid=bsp.bspid and bus.busid=runningpath.busid and seatavailability.busid=bus.busid and seatavailability.routeid=runningpath.routeid'''.format(date),(routeid))
-    buses=cursor.fetchall()
+    busess=cursor.fetchall()
 
-    print(buses)
+    temp1=list(busess)
 
+    for index,bus in enumerate(temp1):
+        temp2=list(bus)
+        d=str(temp2[27])
+        #temp2[27]=str(temp2[27])
+        temp2.append(d)
+        print(type(temp2[31]))
+        temp3=tuple(temp2)
+        temp1[index]=temp3
+
+    buses=tuple(temp1)    
 
     return render(request,"buslist.html",{"buses":buses})
 
 
 def seat(request):
 
-    return render(request, "seat.html")
+    routeid=request.POST['routeid']
+    busid=request.POST['busid']
+    date=request.POST['date']
+
+    cursor.execute(''' select bookedseats from seatavailability where routeid=%s and busid=%s and dateofjourney=%s''',(routeid,busid,date))
+    info1=cursor.fetchone()
+    info=info1[0]
+    seats=[]
+    n=len(info)
+    print(n)
+
+    for i in range(n):
+        if(info[i]=='_'):
+            temp=info[i-1]+info[i]+info[i+1]
+            seats.append(temp)
+
+    print(seats)
+
+    return render(request, "seat.html", {"seats":seats})
+
+
+def payment(request):
+    seats=request.POST['seats']
+    price=request.POST['price']
+    pricef=int(price)
+    pricef=pricef+100
+    print(seats)
+
+    return render(request, "payment.html",{"seats":seats, "price":price, "pricef":pricef})
+

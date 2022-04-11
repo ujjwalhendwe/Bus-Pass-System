@@ -133,12 +133,9 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-LOGIN_REDIRECT_URL='home'
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
-
 
 STATIC_DIR = os.path.join(BASE_DIR,"static")
 
@@ -148,7 +145,10 @@ STATICFILES_DIRS= [
    STATIC_DIR,
 ]
 
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
-ACCOUNT_FORMS = {
-'signup': 'bps.forms.CustomSignupForm',
-}
+ACCOUNT_EMAIL_REQUIRED = True
+
+SOCIALACCOUNT_QUERY_EMAIL = True
+
+ACCOUNT_SESSION_REMEMBER = True
