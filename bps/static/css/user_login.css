@@ -1,0 +1,28 @@
+
+      body{
+        background-image: url("https://images.pexels.com/photos/6122260/pexels-photo-6122260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500") ;
+        background-repeat:no-repeat;
+        background-size: cover;
+        color: white;
+        background-position: center;}
+ .dba{
+     border: 0px solid rgb(117, 35, 35);
+     padding: 10px 60px;
+     background-color: white;
+     /* -webkit-box-shadow: 28px 14px 35px 38px rgba(47,112,55,0.41);
+     -moz-box-shadow: 28px 14px 35px 38px rgba(47,112,55,0.41);
+      box-shadow: 28px 14px 35px 38px rgba(47,112,55,0.41); */
+
+      /* -webkit-box-shadow: 11px 14px 102px 4px rgba(34,36,34,1);
+-moz-box-shadow: 11px 14px 102px 4px rgba(34,36,34,1);
+box-shadow: 11px 14px 102px 4px rgba(34,36,34,1); */
+/* opacity:1.7; */
+
+
+      /* -webkit-box-shadow: 13px 2px 85px 54px rgba(0,0,0,0.75);
+-moz-box-shadow: 13px 2px 85px 54px rgba(0,0,0,0.75);
+box-shadow: 13px 2px 85px 54px rgba(0,0,0,0.75); */
+ }
+/* images\pexels-cottonbro-6686312.jpg */
+/* images\pexels-wender-junior-souza-vieira-6122260.jpg */
+/* pexels-dmitriy-ganin-7789191.jpg */
