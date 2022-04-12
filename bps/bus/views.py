@@ -1,10 +1,12 @@
 from email import message
+import re
 from tracemalloc import start
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 import MySQLdb.cursors
 from datetime import datetime,time
 from django.contrib import messages
+import time
 
 import mysql.connector
 from numpy import diff
@@ -153,6 +155,8 @@ def buslist(request):
     if log == None:
         cursor.execute(''' insert into user(userid,name) values(%s,%s)''',(request.user.get_username(),request.user.get_full_name()))
         connection.commit()
+        cursor.execute('''insert into wallet(userid,walletbalance) values(%s,%s)''',(request.user.get_username(),0))
+        connection.commit()
 
     dep=request.POST['dep']
     arr=request.POST['arr']
@@ -215,7 +219,10 @@ def payment(request):
     pricef=pricef+100
     print(seats)
 
-    return render(request, "payment.html",{"seats":seats, "price":price, "pricef":pricef,"routeid":routeid,"busid":busid,"date":date})
+    cursor.execute(''' select walletbalance from wallet where userid=%s''',(request.user.get_username(),))
+    balance=cursor.fetchall()
+
+    return render(request, "payment.html",{"seats":seats, "price":price, "pricef":pricef,"routeid":routeid,"busid":busid,"date":date, "balance":balance[0][0]})
 
 def passenger(request):
     pricef=request.POST['pricef']
@@ -245,5 +252,44 @@ def passenger(request):
     return render(request,"passenger.html",{"seats":seats,"pricef":pricef, "price":pricef,"routeid":routeid,"busid":busid,"date":date})
 
 
+def topup(request):
+    user=request.user.get_username()
+    seats=request.POST['seats']
+    price=request.POST['price']
+    routeid=request.POST['routeid']
+    busid=request.POST['busid']
+    date=request.POST['date']
+    pricef=request.POST['pricef']
+    topup=request.POST['topup']
+
+    print(type(request.user.get_username()))
+    cursor.execute(''' select walletbalance from wallet where userid=%s''',(request.user.get_username(),))
+    balance=cursor.fetchall()
+
+    new=balance[0][0]+int(topup)
+
+    cursor.execute(''' update wallet set walletbalance =%s where userid=%s''',(new,request.user.get_username(),))
+    connection.commit()
+
+    cursor.execute(''' select walletbalance from wallet where userid=%s''',(request.user.get_username(),))
+    balance=cursor.fetchall()
+
+    return render(request,'payment.html',{"seats":seats,"pricef":pricef, "price":price,"routeid":routeid,"busid":busid,"date":date,"balance":balance[0][0]})
+
+def book(request):
+
+    name=request.POST.getlist('name')
+    age=request.POST.getlist('age')
+    seats=request.POST['seats']
+    routeid=request.POST['routeid']
+    busid=request.POST['busid']
+    date=request.POST['date']
+    pricef=request.POST['pricef']
+
+    bookingid=int(time.time()*1000000)
+
+
+
+    print(bookingid)
 
 
