@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import MySQLdb.cursors
 from datetime import datetime,time
+from django.views.decorators.csrf import csrf_protect
+from django.core.files.storage import FileSystemStorage
 
 import mysql.connector
 from numpy import diff
@@ -129,3 +131,20 @@ def trackbus(request):
     details=[deptstation]
     if (len(details)>0):
         return render(request,"track.html",{'details1':details})
+
+def buspass(request):
+    return render(request,"pass.html")
+
+def passcheck(request):
+    if request.method == "post":
+        firstname=request.POST['FirstName']
+        fathername=request.POST['FatherName']
+        Aadharno=request.POST['Aadharno']
+        Aadhar=request.FILES['Aadhar']
+        city=request.POST['CityId']
+        student=request.FILES['studentid']
+        handicap=request.FILES['handicapcertificate']
+        senior=request.FILES['seniorcitizencertificate']
+        fs=FileSystemStorage()
+        fs.save(Aadhar.name,Aadhar)
+    return render(request,"home.html")
