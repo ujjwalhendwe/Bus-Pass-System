@@ -10,8 +10,8 @@ urlpatterns = [
     path('login',views.login),
     path('showbus',views.showbus),
     path('track',views.track),
-    path('buspass',views.buspass),
-    path('passcheck',views.passcheck),
+    path('history',views.history),
+    path('rating',views.rating),
     path('trackbus',views.trackbus)
 ]
 

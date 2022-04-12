@@ -5,6 +5,7 @@ import MySQLdb.cursors
 from datetime import datetime,time
 from django.views.decorators.csrf import csrf_protect
 from django.core.files.storage import FileSystemStorage
+from django.contrib.sessions.models import Session
 
 import mysql.connector
 from numpy import diff
@@ -53,6 +54,7 @@ def login(request):
     cursor.execute("SELECT userid FROM user WHERE userid='{}' and password='{}'".format(Userid,password))
     validate2=cursor.fetchall()
     if len(validate2)>0:
+        request.session["userid"]=Userid
         return render(request,'home.html',{"stations":z})
     elif len(validate1)>0:
         return render(request,'login.html',{'validpassword':"(Incorrect password)"})
@@ -132,19 +134,37 @@ def trackbus(request):
     if (len(details)>0):
         return render(request,"track.html",{'details1':details})
 
-def buspass(request):
-    return render(request,"pass.html")
+def history(request):
+    userid=request.session.get('userid')
+    cursor.execute("select * from ticket where userid='{}'".format(userid))
+    ticket=cursor.fetchall()
+    if(len(ticket)>0):
+        cursor.execute("select distinct(dateofjourney) from ticket where userid='{}'".format(userid))
+        dates=cursor.fetchall()
+        prevdetails=[]
+        newdetails=[]
+        c=datetime.now()
+        date=c.strftime("%Y:%m:%d")
+        date_format = "%Y:%m:%d"
+        a = datetime.strptime(date, date_format)
+        for i in dates:
+            date1=str(i[0]).replace("-",":")
+            b = datetime.strptime(date1, date_format)
+            delta=b-a
+            delta=delta.days
+            if (delta>=0):
+                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
+                y=cursor.fetchall()
+                newdetails.append(y)
+            else:
+                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
+                y=cursor.fetchall()
+                prevdetails.append(y)
+        print(newdetails)
+        print(prevdetails)
 
-def passcheck(request):
-    if request.method == "post":
-        firstname=request.POST['FirstName']
-        fathername=request.POST['FatherName']
-        Aadharno=request.POST['Aadharno']
-        Aadhar=request.FILES['Aadhar']
-        city=request.POST['CityId']
-        student=request.FILES['studentid']
-        handicap=request.FILES['handicapcertificate']
-        senior=request.FILES['seniorcitizencertificate']
-        fs=FileSystemStorage()
-        fs.save(Aadhar.name,Aadhar)
-    return render(request,"home.html")
+        return render(request,"historypage.html",{"prevdetails":prevdetails,'newdetails':newdetails}) 
+    return render(request,"historypage.html") 
+
+def rating(request):
+    return render(request,"rating.html") 
