@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -21,9 +22,134 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <style>
+    .navbar-expand-lg  {
+        /* background-color:white; */
+        /* background-color: #990000; */
+    /* background-image: linear-gradient(147deg, #990000 0%, #ff0000 74%); */
+    background-color: #272822;
+     margin-bottom: 0px;
+    border-radius: 0px;
+
+    }
+    
+  
+    .abc:hover{
+        color: rgb(226, 217, 217);
+    }
+    ul{
+        list-style-type: none;
+    }
+    
+  
+    .navbar-expand-lg .navbar-nav .nav-link{
+        padding: 0rem 1.2rem;
+        font-size: 1.7rem;
+        position: relative;
+        text-decoration-line: none;
+    }
+    .navbar-expand-lg .navbar-nav .nav-link{
+        /* border-bottom:1px solid #dd2713; */
+        color: white;
+    
+    } 
+    .navbar-expand-lg .navbar-nav .nav-link:hover{
+        /* border-bottom:1px solid #dd2713; */
+        font-size: 20px;
+        font-weight: 600;
+    } 
+    
+    .navbar-expand-lg .navbar-nav .nav-link.active{
+        border-bottom: 2px solid white;
+        color: white;
+        text-shadow: 0px 1px 2px black;
+    }
+    
+    .navbar-nav .btn{
+        background-color: blue;
+        color: white;
+        border-radius: 6px;
+    
+        font-size: 2rem;
+        /* margin-top: 1px; */
+        
+    }
+    .navbar-nav .btn:hover{
+        background-color: green;
+        box-shadow: 1px 1px 1px blue;
+    }
+    
+    
+   
+</style>
 </head>
 
 <body>
+         
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid afr" >
+         <!--  <nav class="navbar navbar-expand-lg header-nav fixed-top"> 
+              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                 <div class="container-fluid"> -->
+          <a class="navbar-brand" href="#"><img src="bps/static/img/serene.png" width="100" height="50" style="display: block; border: 0px; margin-top:-20px;margin-bottom:0px;" /></a></a>
+          <!--<img src="logo.jpg"> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+    
+          </button>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="font-family: 'Calistoga', cursive;">
+              <li class="nav-item">
+                <a class="nav-link active " aria-current="page" href="#" >Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" >Tickets</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" >Contact</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:#e74c3c;"  >
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+             
+            </ul>
+            <!-- <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+            
+    
+    
+            
+          </div>
+          <span class="navbar-text " style="margin-top: 1px;">
+             <!-- <p style="color: aquamarine;">Helllo  hbsdahcbh</p>  -->
+             <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+             
+                 <button class="btn btn1"style=" border: 1px solid #3498db; background:none;color:white;font-size:15px; transition:0.8s; box-shadow:0px 0px 2px white;">Logout</button>
+             
+             
+             <!-- <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Logout</a>  -->
+            
+        </span> 
+        </div>
+      </nav>
+    
+    
+
 
 
     <section class="banner" id="top">

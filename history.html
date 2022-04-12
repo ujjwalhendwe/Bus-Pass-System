@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Responsive Travel Agency Website Design</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file cdn link  -->
+    <link rel="stylesheet" href="css/home.css">
+<style> 
+    .date {
+        width: 28rem; height: 160px; 
+        background: #fcfcfc; 
+        background: linear-gradient(top, #fcfcfc 0%,#dad8d8 100%); 
+        background: -moz-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%); 
+        background: -webkit-linear-gradient(top, #fcfcfc 0%,#dad8d8 100%); 
+        border: 1px solid #d2d2d2;
+        border-radius: 10px;
+        position: relative;
+        
+       
+    }
+    .date p {
+        font-family: Helvetica, sans-serif; 
+        font-size: 75px;
+        text-align: center;
+        color: black; font-weight: bold;
+        position: relative;
+         
+        
+    }
+   
+    .date p span {
+        background: #d10000; 
+        background: linear-gradient(top, #d10000 0%, #7a0909 100%);
+        background: -moz-linear-gradient(top, #d10000 0%, #7a0909 100%);
+        background: -webkit-linear-gradient(top, #d10000 0%, #7a0909 100%);
+        font-size: 45px; font-weight: bold; color: #fff; text-transform: uppercase; 	
+        display: block;
+        border-top: 3px solid #a13838;
+        border-radius: 0 0 10px 10px;
+        -moz-border-radius: 0 0 10px 10px;
+        -webkit-border-radius: 0 0 10px 10px;
+        padding: 6px 0 6px 0;
+    }
+    .linkdecor{
+        color: #d2d2d2;
+    }
+    @-moz-document url-prefix() {
+        .date {
+            padding: 16px 0 0 0;
+        }
+        .date p span {
+            padding: 9px 0 3px 0;
+        }
+    }
+.services .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+     
+}
+
+.services .box-container .box{
+    background: var(--bg-color-1);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    
+    padding:2rem;
+}
+
+.services .box-container .box span{
+    position: absolute;
+    top:.5rem; right:2rem;
+    color:var(--text-color-2);
+    font-weight: bolder;
+    font-size: 5rem;
+}
+a:hover{
+    font-size: larger;
+}
+</style>
+</head>
+
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-paper-plane"></i> travel </a>
+
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <!-- <div class="fas fa-user" id="login-btn"></div> -->
+        <div class="fas fa-moon" id="theme-btn"></div>
+        <div class="fas fa-user" id="login-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#packages">packages</a>
+        <a href="#services">services</a>
+        <a href="#pricing">pricing</a>
+        <a href="#review">review</a>
+        <a href="#contact">contact</a>
+        <a href="#blogs">blogs</a>
+    </nav>
+
+    <form action="" class="login-form">
+
+       <a href="./user_login.html"><input type="button" class="btn" value="Customer Login"></a>
+       <a href="./admin.html"><input type="button" class="btn" value="Admin Login"></a>
+      
+
+    </form> 
+   
+    
+</header>
+
+
+
+<section class="services" id="services">
+
+    <h1 class="heading"> our <span>services</span> </h1>
+              <!-- <h1 style="font-size: 50px;"> Our Services</h1> -->
+              <h1 class="heading"> <span>Previous</span> </h1>
+    <div class="box-container">
+        <div class="date">
+            <p>25 <span>SEPT</span></p>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <!-- <span>11 Nov 2021</span> -->
+            <!-- <i class="fas fa-hotel"></i> -->
+            <span>01</span>
+            <h3>Bus from Pune to Hyderabad</h3>
+            <p style="font-size: 15px;">Ticket No : L12344</p>
+            
+            <p style="font-size: 15px;">Seat No : L12344</p>
+            <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
+           
+            <!-- <span>11 Nov 2021</span> -->
+
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <!-- <span>11 Nov 2021</span> -->
+            <!-- <i class="fas fa-hotel"></i> -->
+            <span>02</span>
+            <h3>Bus from Pune to Hyderabad</h3>
+            <p style="font-size: 15px;">Ticket No : L12344</p>
+            
+            <p style="font-size: 15px;">Seat No : L12344</p>
+            <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
+           
+            <!-- <span>11 Nov 2021</span> -->
+
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <!-- <span>11 Nov 2021</span> -->
+            <!-- <i class="fas fa-hotel"></i> -->
+            <span>03</span>
+            <h3>Bus from Pune to Hyderabad</h3>
+            <p style="font-size: 15px;">Ticket No : L12344</p>
+            
+            <p style="font-size: 15px;">Seat No : L12344</p>
+            <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
+           
+            <!-- <span>11 Nov 2021</span> -->
+
+        </div>
+         <div class="date">
+            <p>25 <span>MARCH</span></p>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <!-- <span>11 Nov 2021</span> -->
+            <!-- <i class="fas fa-hotel"></i> -->
+            <span>01</span>
+            <h3>Bus from Pune to Hyderabad</h3>
+            <p style="font-size: 15px;">Ticket No : L12344</p>
+            
+            <p style="font-size: 15px;">Seat No : L12344</p>
+            <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
+           
+            <!-- <span>11 Nov 2021</span> -->
+
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <!-- <span>11 Nov 2021</span> -->
+            <!-- <i class="fas fa-hotel"></i> -->
+            <span>02</span>
+            <h3>Bus from Pune to Hyderabad</h3>
+            <p style="font-size: 15px;">Ticket No : L12344</p>
+            
+            <p style="font-size: 15px;">Seat No : L12344</p>
+            <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
+           
+            <!-- <span>11 Nov 2021</span> -->
+
+        </div>
+        
+    </div>
+   
+    <h1 class="heading"> <span>Upcoming</span> </h1>
+    <div class="box-container">
+        <div class="date">
+            <p>30 <span>DECEMBER</span></p>
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <!-- <span>11 Nov 2021</span> -->
+            <!-- <i class="fas fa-hotel"></i> -->
+            <span>01</span>
+            <h3>Bus from Pune to Hyderabad</h3>
+            <p style="font-size: 15px;">Ticket No : L12344</p>
+            
+            <p style="font-size: 15px;">Seat No : L12344</p>
+            <p style="font-size:25px;"> <a href="#"> Delete </a></p>
+           
+            <!-- <span>11 Nov 2021</span> -->
+
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <!-- <span>11 Nov 2021</span> -->
+            <!-- <i class="fas fa-hotel"></i> -->
+            <span>02</span>
+            <h3>Bus from Pune to Hyderabad</h3>
+            <p style="font-size: 15px;">Ticket No : L12344</p>
+            
+            <p style="font-size: 15px;">Seat No : L12344</p>
+            <p style="font-size:25px;"> <a href="#"> Delete </a></p>
+           
+            <!-- <span>11 Nov 2021</span> -->
+
+        </div>
+        <div class="box" data-aos="zoom-in">
+            <!-- <span>11 Nov 2021</span> -->
+            <!-- <i class="fas fa-hotel"></i> -->
+            <span>03</span>
+            <h3>Bus from Pune to Hyderabad</h3>
+            <p style="font-size: 15px;">Ticket No : L12344</p>
+            
+            <p style="font-size: 15px;">Seat No : L12344</p>
+            <p style="font-size:25px;"> <a href="#"> Delete </a></p>
+           
+            <!-- <span>11 Nov 2021</span> -->
+
+        </div>
+    </div>
+
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+<script>
+
+AOS.init({
+    duration:800,
+    delay:400
+});
+
+</script>
+
+</body>
+</html>
