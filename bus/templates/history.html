@@ -892,7 +892,9 @@ a:hover{
                 <p style="font-size: 15px;">Ticket No :{{y.0}} </p>
                 <p style="font-size: 15px;">Seat No : {{y.4}}</p>
                 <p style="font-size: 15px;">Status : {{y.5}}</p>
-                <p style="font-size:15px;"> <a href="/rating"> Feedback </a></p>
+                {% if y.5 == "CNF" %}
+                            <p style="font-size:15px;"> <a href="/rating"> Feedback </a></p>
+                {% endif %}     
                 
                 <!-- <span>11 Nov 2021</span> -->
 
@@ -917,8 +919,9 @@ a:hover{
                           <p style="font-size: 15px;">Ticket No :{{y.0}} </p>
                           <p style="font-size: 15px;">Seat No : {{y.4}}</p>
                           <p style="font-size: 15px;">Status : {{y.5}}</p>
-                          <p style="font-size:15px;"> <a href="/cancel"> Cancel </a></p>
-                          
+                          {% if y.5 == "CNF" %}
+                            <p style="font-size:15px;"> <a href="/cancel/{{y.0}}"> <button onclick="myFunction()" type="button" class="btn btn-secondary btn-sm">Cancel </button></a></p>
+                          {% endif %}                          
                           <!-- <span>11 Nov 2021</span> -->
           
                 </div>
@@ -942,6 +945,10 @@ AOS.init({
     duration:800,
     delay:400
 });
+
+function myFunction(){
+    alert("Cancelled successfully.")
+}
 
 </script>
 

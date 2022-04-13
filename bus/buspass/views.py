@@ -1,5 +1,5 @@
 from tracemalloc import start
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 import MySQLdb.cursors
 from datetime import datetime,time
@@ -168,3 +168,43 @@ def history(request):
 
 def rating(request):
     return render(request,"rating.html") 
+
+def cancel(request,Ticketno):
+    cursor.execute("select status from ticket where bookingid='{}'".format(Ticketno))
+    status=cursor.fetchall()
+    if(len(status)>0):
+        if(status[0][0]=="CNF"):
+            cursor.execute("update ticket set status='CXL' where bookingid='{}'".format(Ticketno))
+            connection.commit()
+    userid=request.session.get('userid')
+    cursor.execute("select * from ticket where userid='{}'".format(userid))
+    ticket=cursor.fetchall()
+    if(len(ticket)>0):
+        cursor.execute("select distinct(dateofjourney) from ticket where userid='{}'".format(userid))
+        dates=cursor.fetchall()
+        prevdetails=[]
+        newdetails=[]
+        c=datetime.now()
+        date=c.strftime("%Y:%m:%d")
+        date_format = "%Y:%m:%d"
+        a = datetime.strptime(date, date_format)
+        for i in dates:
+            date1=str(i[0]).replace("-",":")
+            b = datetime.strptime(date1, date_format)
+            delta=b-a
+            delta=delta.days
+            if (delta>=0):
+                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats,status from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
+                y=cursor.fetchall()
+                newdetails.append(y)
+            else:
+                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats,status from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
+                y=cursor.fetchall()
+                prevdetails.append(y)
+    return render(request,"history.html",{"prevdetails":prevdetails,'newdetails':newdetails}) 
+
+def feedback(request):
+    Rating=request.GET['rate']   
+    feedback=request.GET['feed']
+    print(Rating,feedback)
+    return render(request,"history.html") 

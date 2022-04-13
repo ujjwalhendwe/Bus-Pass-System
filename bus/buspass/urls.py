@@ -12,6 +12,8 @@ urlpatterns = [
     path('track',views.track),
     path('history',views.history),
     path('rating',views.rating),
+    path('cancel/<Ticketno>',views.cancel),
+    path('feedback',views.feedback),
     path('trackbus',views.trackbus)
 ]
 
