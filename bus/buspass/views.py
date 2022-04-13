@@ -163,8 +163,8 @@ def history(request):
         print(newdetails)
         print(prevdetails)
 
-        return render(request,"historypage.html",{"prevdetails":prevdetails,'newdetails':newdetails}) 
-    return render(request,"historypage.html") 
+        return render(request,"history.html",{"prevdetails":prevdetails,'newdetails':newdetails}) 
+    return render(request,"history.html") 
 
 def rating(request):
     return render(request,"rating.html") 
