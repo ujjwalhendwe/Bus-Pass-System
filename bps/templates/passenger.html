@@ -21,7 +21,7 @@
 
         {% for seat in seats %}
 
-        <div class="card shadow py-2 px-5 mb-2">
+        <div class="card shadow py-2 px-5 mb-3">
             <div class="row mt-1">
 <h5 style="font-size: 18px;" class="text-muted"  > Passenger - {{seat.0}} | Seat Number {{seat.1}}</h5>
             </div>
@@ -66,7 +66,7 @@
                         <input type="text" name="routeid" style="display: none;" value="{{routeid}}">
                     <input type="text" name="busid" style="display: none;" value="{{busid}}">
                     <input type="text" name="date" style="display: none;" value="{{date}}">
-<div style="text-align: center;" class="my-1">
+<div style="text-align: center;" class="my-3">
 
     <button type="submit" class="btn btn-success btn-lg">Book Tickets</button>
 </div>
