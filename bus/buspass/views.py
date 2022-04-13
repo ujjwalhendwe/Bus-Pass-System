@@ -236,14 +236,32 @@ def passcheck(request):
     aadharno=request.POST['Aadharno']
     aadhar=request.FILES['Aadhar']
     city=request.POST['CityId']
-    studentid=request.FILES['studentid']
-    handicapcertificate=request.FILES['handicapcertificate']
-    seniorcitizencertificate=request.FILES['seniorcitizencertificate']
+    student=request.POST['student']
+    handicap=request.POST['handicap']
+    senior=request.POST['senior']
     fs=FileSystemStorage()
     file1=fs.save(name+"-"+aadhar.name,aadhar)
-    file2=fs.save(name+"-"+studentid.name,studentid)
-    file3=fs.save(name+"-"+handicapcertificate.name,handicapcertificate)
-    file4=fs.save(name+"-"+seniorcitizencertificate.name,seniorcitizencertificate)
-    cursor.execute("insert into citybuspass(name,fathername,userid,cityid,aadharno,aadharpath,documentpath) values('{}','{}','{}','{}','{}','{}','{}')".format(name,fathername,userid,city,aadharno,name+"-"+aadhar.name,name+"-"+studentid.name+"  "+name+"-"+handicapcertificate.name+"  "+name+"-"+seniorcitizencertificate.name))
+    x=""
+    y=""
+    z=""
+    if(student=="Yes"):
+        studentid=request.FILES['studentid']
+        x=name+"-"+studentid.name
+        file2=fs.save(name+"-"+studentid.name,studentid)
+    if(handicap=="Yes"):
+        handicapcertificate=request.FILES['handicapcertificate']
+        y=name+"-"+handicapcertificate.name
+        file3=fs.save(name+"-"+handicapcertificate.name,handicapcertificate)
+    if(senior=="Yes"):
+        seniorcitizencertificate=request.FILES['seniorcitizencertificate']
+        z=name+"-"+seniorcitizencertificate.name
+        file4=fs.save(name+"-"+seniorcitizencertificate.name,seniorcitizencertificate)
+    cursor.execute("insert into citybuspass(name,fathername,userid,cityid,aadharno,aadharpath,documentpath) values('{}','{}','{}','{}','{}','{}','{}')".format(name,fathername,userid,city,aadharno,name+"-"+aadhar.name,x+"  "+y+"  "+z))
     connection.commit()
-    return render(request,"home.html")
+    cursor.execute("select * from citybuspass where userid='{}'".format(userid))
+    details=cursor.fetchall()
+    c=datetime.now()
+    date=c.strftime("%Y:%m:%d")
+    date_format = "%Y:%m:%d"
+    a = datetime.strptime(date, date_format)
+    return render(request,"softcopy.html",{"details":details,"date":date})

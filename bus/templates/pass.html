@@ -63,13 +63,42 @@
               <label for="seniorcitizencertificate" class="form-label">Upload Senior Citizen Certificate </label>
               <input type="file" class="form-control" id="seniorcitizencertificate">
             </div> -->
+            <div class="row mt-2">
+            <div class="col-md-6">
+              <label for="studentid" class="form-label">Are you a student? </label>
+              <select required class="form-control" name="student">
+                <option selected value="Choose"</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
             <div class="col-md-6">
               <label for="studentid" class="form-label">Student Id </label>
               <input type="file" class="form-control" id="studentid" name="studentid">
             </div>
+            </div>
+            <div class="row mt-2">
+            <div class="col-md-6">
+              <label for="handicapcertificate" class="form-label">Are you handicapped? </label>
+              <select required class="form-control" name="handicap">
+                <option selected value="Choose"</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
             <div class="col-md-6">
               <label for="handicapcertificate" class="form-label">Handicap Certificate </label>
               <input type="file" class="form-control" id="handicapcertificate" name="handicapcertificate">
+            </div>
+            </div>
+            <div class="row mt-2">
+            <div class="col-md-6">
+              <label for="seniorcitizenshipcertificate" class="form-label">Are you a senior citizen? </label>
+              <select required class="form-control" name="senior">
+                <option selected value="Choose"</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             <div class="col-md-6">
               <label for="seniorcitizenshipcertificate" class="form-label">Senior Citizenship Certificate </label>
@@ -78,6 +107,7 @@
             <div class="col-md-12 text-center">
               <button type="submit" class="btn btn-outline-dark btn-lg ">Submit</button>
             </div>
+          </div>
           
     </form></div>
     </body>
