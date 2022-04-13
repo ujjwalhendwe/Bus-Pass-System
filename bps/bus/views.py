@@ -197,7 +197,12 @@ def seat(request):
     info1=cursor.fetchone()
     info=info1[0]
     seats=[]
-    n=len(info)
+
+    n=0
+
+    if info != None:
+       n=len(info)
+
     print(n)
 
     for i in range(n):
@@ -292,15 +297,19 @@ def book(request):
     cursor.execute(''' select bookedseats from seatavailability where busid=%s and routeid=%s and dateofjourney=%s ''',(busid,routeid,date))
     bs=cursor.fetchone()
     bseats=bs[0]
+
+    if bseats== None:
+        bseats=""
+        
     seat=""
 
-    cursor.execute('''insert into ticket(bookingid,userid,busid,routeid,dateofjourney,seats,price,transactionid,status) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)''',(bookingid,request.user.get_username(),busid,routeid,date,seats,pricef,bookingid,"Booked"))
-    connection.commit()
-    
     for index,s in enumerate(seats):
         if s=='_':
            seat=seat+seats[index-1]+s+seats[index+1]+" "
            bseats=bseats+seats[index-1]+s+seats[index+1]+" "
+
+    cursor.execute('''insert into ticket(bookingid,userid,busid,routeid,dateofjourney,seats,price,transactionid,status) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)''',(bookingid,request.user.get_username(),busid,routeid,date,bseats,pricef,bookingid,"CNF"))
+    connection.commit()
 
     for index,n in enumerate(name):
         pid=int(time.time()*1000000+index+1)
@@ -344,5 +353,99 @@ def book(request):
 
     return render(request,'ticket.html',{"bookingid":bookingid,"startcity":startcity,"endcity":endcity,"npass":npass,"seat":seat,"bregno":bregno,"bspname":bspname,"phone":phone,"pricef":pricef,"date":date,"name":name})
 
-def ticket(request):
-    return render(request,'ticket.html')
+
+def profile(request):
+    userid=request.user.get_username()
+    cursor.execute('''select * from user where userid=%s''',(userid,))
+    details=cursor.fetchall()
+    print(details)
+    return render(request,"profile.html",{'details':details})
+
+def editprofile(request):
+    userid=request.user.get_username()
+    cursor.execute('''select * from user where userid=%s''',(userid,))
+    details=cursor.fetchall()
+    date=str(details[0][4])
+    return render(request,"editprofile.html",{'details':details,"date":date})
+
+def edit(request):
+    name=request.POST['name']
+    phone=request.POST['phone']
+    gender=request.POST['gender']
+    dob=request.POST['dob']
+    address=request.POST['address']
+    userid=request.user.get_username()
+    cursor.execute("update user set name='{}', phone='{}',gender='{}',dob='{}',address='{}' where userid='{}'".format(name,phone,gender,dob,address,userid))
+    connection.commit()
+    cursor.execute("select * from user where userid='{}'".format(userid))
+    details=cursor.fetchall()
+    return render(request,"profile.html",{"details":details})    
+
+def history(request):
+    userid=request.user.get_username()
+    cursor.execute("select * from ticket where userid='{}'".format(userid))
+    ticket=cursor.fetchall()
+    if(len(ticket)>0):
+        cursor.execute("select distinct(dateofjourney) from ticket where userid='{}'".format(userid))
+        dates=cursor.fetchall()
+        prevdetails=[]
+        newdetails=[]
+        c=datetime.now()
+        date=c.strftime("%Y:%m:%d")
+        date_format = "%Y:%m:%d"
+        a = datetime.strptime(date, date_format)
+        for i in dates:
+            date1=str(i[0]).replace("-",":")
+            b = datetime.strptime(date1, date_format)
+            delta=b-a
+            delta=delta.days
+            if (delta>=0):
+                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats,status from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
+                y=cursor.fetchall()
+                newdetails.append(y)
+            else:
+                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats,status from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
+                y=cursor.fetchall()
+                prevdetails.append(y)
+        print(type(prevdetails[0][0]))
+        #print(prevdetails)
+
+        return render(request,"history.html",{"prevdetails":prevdetails,'newdetails':newdetails}) 
+    return render(request,"history.html") 
+
+def rating(request):
+    return render(request,"rating.html") 
+
+def cancel(request,Ticketno):
+    cursor.execute("select status from ticket where bookingid='{}'".format(Ticketno))
+    status=cursor.fetchall()
+    if(len(status)>0):
+        if(status[0][0]=="CNF"):
+            cursor.execute("update ticket set status='CXL' where bookingid='{}'".format(Ticketno))
+            connection.commit()
+    userid=request.user.get_username()
+    cursor.execute("select * from ticket where userid='{}'".format(userid))
+    ticket=cursor.fetchall()
+    if(len(ticket)>0):
+        cursor.execute("select distinct(dateofjourney) from ticket where userid='{}'".format(userid))
+        dates=cursor.fetchall()
+        prevdetails=[]
+        newdetails=[]
+        c=datetime.now()
+        date=c.strftime("%Y:%m:%d")
+        date_format = "%Y:%m:%d"
+        a = datetime.strptime(date, date_format)
+        for i in dates:
+            date1=str(i[0]).replace("-",":")
+            b = datetime.strptime(date1, date_format)
+            delta=b-a
+            delta=delta.days
+            if (delta>=0):
+                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats,status from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
+                y=cursor.fetchall()
+                newdetails.append(y)
+            else:
+                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats,status from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
+                y=cursor.fetchall()
+                prevdetails.append(y)
+    return render(request,"history.html",{"prevdetails":prevdetails,'newdetails':newdetails}) 
