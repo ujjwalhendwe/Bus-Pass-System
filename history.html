@@ -1,8 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Buss - Travel and Tour</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/fontAwesome.css">
+    <link rel="stylesheet" href="css/hero-slider.css">
+    <link rel="stylesheet" href="css/owl-carousel.css">
+    <link rel="stylesheet" href="css/datepicker.css">
+    <link rel="stylesheet" href="css/tooplate-style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Responsive Travel Agency Website Design</title>
@@ -16,269 +36,378 @@
 
     <!-- custom css file cdn link  -->
     <link rel="stylesheet" href="css/home.css">
-<style> 
-    .date {
-        width: 28rem; height: 160px; 
-        background: #fcfcfc; 
-        background: linear-gradient(top, #fcfcfc 0%,#dad8d8 100%); 
-        background: -moz-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%); 
-        background: -webkit-linear-gradient(top, #fcfcfc 0%,#dad8d8 100%); 
-        border: 1px solid #d2d2d2;
-        border-radius: 10px;
-        position: relative;
-        
-       
-    }
-    .date p {
-        font-family: Helvetica, sans-serif; 
-        font-size: 75px;
-        text-align: center;
-        color: black; font-weight: bold;
-        position: relative;
-         
-        
-    }
-   
-    .date p span {
-        background: #d10000; 
-        background: linear-gradient(top, #d10000 0%, #7a0909 100%);
-        background: -moz-linear-gradient(top, #d10000 0%, #7a0909 100%);
-        background: -webkit-linear-gradient(top, #d10000 0%, #7a0909 100%);
-        font-size: 45px; font-weight: bold; color: #fff; text-transform: uppercase; 	
-        display: block;
-        border-top: 3px solid #a13838;
-        border-radius: 0 0 10px 10px;
-        -moz-border-radius: 0 0 10px 10px;
-        -webkit-border-radius: 0 0 10px 10px;
-        padding: 6px 0 6px 0;
-    }
-    .linkdecor{
-        color: #d2d2d2;
-    }
-    @-moz-document url-prefix() {
+    <style>
         .date {
-            padding: 16px 0 0 0;
+            width: 28rem;
+            height: 160px;
+            background: #fcfcfc;
+            background: linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
+            background: -moz-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
+            background: -webkit-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
+            border: 1px solid #d2d2d2;
+            border-radius: 10px;
+            position: relative;
         }
+        
+        .date p {
+            font-family: Helvetica, sans-serif;
+            font-size: 75px;
+            text-align: center;
+            color: black;
+            font-weight: bold;
+            position: relative;
+        }
+        
         .date p span {
-            padding: 9px 0 3px 0;
+            background: #d10000;
+            background: linear-gradient(top, #d10000 0%, #7a0909 100%);
+            background: -moz-linear-gradient(top, #d10000 0%, #7a0909 100%);
+            background: -webkit-linear-gradient(top, #d10000 0%, #7a0909 100%);
+            font-size: 45px;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            display: block;
+            border-top: 3px solid #a13838;
+            border-radius: 0 0 10px 10px;
+            -moz-border-radius: 0 0 10px 10px;
+            -webkit-border-radius: 0 0 10px 10px;
+            padding: 6px 0 6px 0;
         }
-    }
-.services .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-     
-}
+        
+        .linkdecor {
+            color: #d2d2d2;
+        }
+        
+        @-moz-document url-prefix() {
+            .date {
+                padding: 16px 0 0 0;
+            }
+            .date p span {
+                padding: 9px 0 3px 0;
+            }
+        }
+        
+        .services .box-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        }
+        
+        .services .box-container .box {
+            background: var(--bg-color-1);
+            border-radius: .5rem;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            padding: 2rem;
+        }
+        
+        .services .box-container .box span {
+            position: absolute;
+            top: .5rem;
+            right: 2rem;
+            color: var(--text-color-2);
+            font-weight: bolder;
+            font-size: 5rem;
+        }
+        
+        a:hover {
+            font-size: larger;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-.services .box-container .box{
-    background: var(--bg-color-1);
-    border-radius: .5rem;
-    box-shadow: var(--box-shadow);
-    position: relative;
-    
-    padding:2rem;
-}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
 
-.services .box-container .box span{
-    position: absolute;
-    top:.5rem; right:2rem;
-    color:var(--text-color-2);
-    font-weight: bolder;
-    font-size: 5rem;
-}
-a:hover{
-    font-size: larger;
-}
-</style>
 </head>
 
 <body>
-    
-<!-- header section starts  -->
 
-<header class="header">
+    <!-- header section starts  -->
 
-    <a href="#" class="logo"> <i class="fas fa-paper-plane"></i> travel </a>
-
-    <div class="icons">
-        <div class="fas fa-search" id="search-btn"></div>
-        <!-- <div class="fas fa-user" id="login-btn"></div> -->
-        <div class="fas fa-moon" id="theme-btn"></div>
-        <div class="fas fa-user" id="login-btn"></div>
-        <div class="fas fa-bars" id="menu-btn"></div>
-    </div>
-
-    <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="#packages">packages</a>
-        <a href="#services">services</a>
-        <a href="#pricing">pricing</a>
-        <a href="#review">review</a>
-        <a href="#contact">contact</a>
-        <a href="#blogs">blogs</a>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: black;">
+        <a class="navbar-brand" href="#"><img src="bps/static/img/serene.png" height="50" width="100"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Link <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Tickets <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Contact <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle dropbtn" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: red; font-size:21px; margin:2px;">
+                  Dropdown link
+                </a>
+                    <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <span class="navbar-text">
+            <!-- Navbar text with an inline element -->
+            <a href="#" class="btn btn-warning btn-lg active" role="button" aria-pressed="true" style=" background-image: linear-gradient(90deg, #4c76ff 0%, #d537fd 100%); color:white;   box-shadow: 0 0 20px 0 rgba(8, 12, 204, 0.945);">Logout</a>
+          </span>
+        </div>
     </nav>
 
-    <form action="" class="login-form">
-
-       <a href="./user_login.html"><input type="button" class="btn" value="Customer Login"></a>
-       <a href="./admin.html"><input type="button" class="btn" value="Admin Login"></a>
-      
-
-    </form> 
-   
-    
-</header>
 
 
 
-<section class="services" id="services">
 
-    <h1 class="heading"> our <span>services</span> </h1>
-              <!-- <h1 style="font-size: 50px;"> Our Services</h1> -->
-              <h1 class="heading"> <span>Previous</span> </h1>
-    <div class="box-container" style="display: flex; flex-direction: column; justify-content: center;">
-        <div style="display: flex; align-items: center;">
-        <div class="date" class="box">
-            <p>25 <span>SEPT</span></p>
-        </div>
-        <div class="box" data-aos="zoom-in">
-            <!-- <span>11 Nov 2021</span> -->
-            <!-- <i class="fas fa-hotel"></i> -->
-            <span>01</span>
-            <h3>Bus from Pune to Hyderabad</h3>
-            <p style="font-size: 15px;">Ticket No : L12344</p>
-            
-            <p style="font-size: 15px;">Seat No : L12344</p>
-            <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
-           
-            <!-- <span>11 Nov 2021</span> -->
+    <section class="services" id="services">
 
-        </div>
-        <div class="box" data-aos="zoom-in">
-            <!-- <span>11 Nov 2021</span> -->
-            <!-- <i class="fas fa-hotel"></i> -->
-            <span>02</span>
-            <h3>Bus from Pune to Hyderabad</h3>
-            <p style="font-size: 15px;">Ticket No : L12344</p>
-            
-            <p style="font-size: 15px;">Seat No : L12344</p>
-            <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
-           
-            <!-- <span>11 Nov 2021</span> -->
+        <h1 class="heading"> our <span>services</span> </h1>
+        <!-- <h1 style="font-size: 50px;"> Our Services</h1> -->
+        <h1 class="heading"> <span>Previous</span> </h1>
+        <div class="box-container" style="display: flex; flex-direction: column; justify-content: center;">
+            <div style="display: flex; align-items: center;">
+                <div class="date" class="box">
+                    <p>25 <span>SEPT</span></p>
+                </div>
+                <div class="box" data-aos="zoom-in">
+                    <!-- <span>11 Nov 2021</span> -->
+                    <!-- <i class="fas fa-hotel"></i> -->
 
-        </div>
-        <div class="box" data-aos="zoom-in">
-            <!-- <span>11 Nov 2021</span> -->
-            <!-- <i class="fas fa-hotel"></i> -->
-            <span>03</span>
-            <h3>Bus from Pune to Hyderabad</h3>
-            <p style="font-size: 15px;">Ticket No : L12344</p>
-            
-            <p style="font-size: 15px;">Seat No : L12344</p>
-            <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
-           
-            <!-- <span>11 Nov 2021</span> -->
+                    <h3>Bus from Pune to Hyderabad</h3>
+                    <p style="font-size: 15px;">Ticket No : L12344</p>
 
-        </div>
-        </div>
+                    <p style="font-size: 15px;">Seat No : L12344</p>
+                    <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
 
-        <div style="display: flex; align-items: center;">
-         <div class="date"  class="box">
-            <p>25 <span>MARCH</span></p>
-        </div>
-        <div class="box" data-aos="zoom-in">
-            <!-- <span>11 Nov 2021</span> -->
-            <!-- <i class="fas fa-hotel"></i> -->
-            <span>01</span>
-            <h3>Bus from Pune to Hyderabad</h3>
-            <p style="font-size: 15px;">Ticket No : L12344</p>
-            
-            <p style="font-size: 15px;">Seat No : L12344</p>
-            <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
-           
-            <!-- <span>11 Nov 2021</span> -->
+                    <!-- <span>11 Nov 2021</span> -->
 
-        </div>
-        <div class="box" data-aos="zoom-in">
-            <!-- <span>11 Nov 2021</span> -->
-            <!-- <i class="fas fa-hotel"></i> -->
-            <span>02</span>
-            <h3>Bus from Pune to Hyderabad</h3>
-            <p style="font-size: 15px;">Ticket No : L12344</p>
-            
-            <p style="font-size: 15px;">Seat No : L12344</p>
-            <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
-           
-            <!-- <span>11 Nov 2021</span> -->
+                </div>
+                <div class="box" data-aos="zoom-in">
+                    <!-- <span>11 Nov 2021</span> -->
+                    <!-- <i class="fas fa-hotel"></i> -->
+
+                    <h3>Bus from Pune to Hyderabad</h3>
+                    <p style="font-size: 15px;">Ticket No : L12344</p>
+
+                    <p style="font-size: 15px;">Seat No : L12344</p>
+                    <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
+
+                    <!-- <span>11 Nov 2021</span> -->
+
+                </div>
+                <div class="box" data-aos="zoom-in">
+                    <!-- <span>11 Nov 2021</span> -->
+                    <!-- <i class="fas fa-hotel"></i> -->
+
+                    <h3>Bus from Pune to Hyderabad</h3>
+                    <p style="font-size: 15px;">Ticket No : L12344</p>
+
+                    <p style="font-size: 15px;">Seat No : L12344</p>
+                    <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
+
+                    <!-- <span>11 Nov 2021</span> -->
+
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center;">
+                <div class="date" class="box">
+                    <p>25 <span>MARCH</span></p>
+                </div>
+                <div class="box" data-aos="zoom-in">
+                    <!-- <span>11 Nov 2021</span> -->
+                    <!-- <i class="fas fa-hotel"></i> -->
+
+                    <h3>Bus from Pune to Hyderabad</h3>
+                    <p style="font-size: 15px;">Ticket No : L12344</p>
+
+                    <p style="font-size: 15px;">Seat No : L12344</p>
+                    <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
+
+                    <!-- <span>11 Nov 2021</span> -->
+
+                </div>
+                <div class="box" data-aos="zoom-in">
+                    <!-- <span>11 Nov 2021</span> -->
+                    <!-- <i class="fas fa-hotel"></i> -->
+
+                    <h3>Bus from Pune to Hyderabad</h3>
+                    <p style="font-size: 15px;">Ticket No : L12344</p>
+
+                    <p style="font-size: 15px;">Seat No : L12344</p>
+                    <p style="font-size:25px;"> <a href="rating_system.html"> Feedback </a></p>
+
+                    <!-- <span>11 Nov 2021</span> -->
+
+                </div>
+            </div>
 
         </div>
+
+        <h1 class="heading"> <span>Upcoming</span> </h1>
+        <div class="box-container">
+            <div class="date">
+                <p>30 <span>DECEMBER</span></p>
+            </div>
+            <div class="box" data-aos="zoom-in">
+                <!-- <span>11 Nov 2021</span> -->
+                <!-- <i class="fas fa-hotel"></i> -->
+
+                <h3>Bus from Pune to Hyderabad</h3>
+                <p style="font-size: 15px;">Ticket No : L12344</p>
+
+                <p style="font-size: 15px;">Seat No : L12344</p>
+                <p style="font-size:25px;"> <a href="#"> Delete </a></p>
+
+                <!-- <span>11 Nov 2021</span> -->
+
+            </div>
+            <div class="box" data-aos="zoom-in">
+                <!-- <span>11 Nov 2021</span> -->
+                <!-- <i class="fas fa-hotel"></i> -->
+
+                <h3>Bus from Pune to Hyderabad</h3>
+                <p style="font-size: 15px;">Ticket No : L12344</p>
+
+                <p style="font-size: 15px;">Seat No : L12344</p>
+                <p style="font-size:25px;"> <a href="#"> Delete </a></p>
+
+                <!-- <span>11 Nov 2021</span> -->
+
+            </div>
+            <div class="box" data-aos="zoom-in">
+                <!-- <span>11 Nov 2021</span> -->
+                <!-- <i class="fas fa-hotel"></i> -->
+
+                <h3>Bus from Pune to Hyderabad</h3>
+                <p style="font-size: 15px;">Ticket No : L12344</p>
+
+                <p style="font-size: 15px;">Seat No : L12344</p>
+                <p style="font-size:25px;"> <a href="#"> Delete </a></p>
+
+                <!-- <span>11 Nov 2021</span> -->
+
+            </div>
         </div>
-        
-    </div>
-   
-    <h1 class="heading"> <span>Upcoming</span> </h1>
-    <div class="box-container">
-        <div class="date">
-            <p>30 <span>DECEMBER</span></p>
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="primary-button">
+                        <a href="#" class="scroll-top">Back To Top</a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <a href="#" class="mx-2"> <i class="fa fa-apple" style="font-size:42px;color:black"></i></a>
+                        <a href="#" class="mx-2 "> <i class="fa fa-google" style="font-size:42px;color:red"></i></a>
+                        <a href="#" class="mx-2 "> <i class="fa fa-facebook" style="font-size:42px;color:rgb(82, 82, 247)"></i></a>
+
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    <p>Copyright &copy; 2018 Flight Tour and Travel Company | Design: <a href="http://www.code-projects.org" target="_parent"><em>Code Projects</em></a></p>
+                </div>
+            </div>
         </div>
-        <div class="box" data-aos="zoom-in">
-            <!-- <span>11 Nov 2021</span> -->
-            <!-- <i class="fas fa-hotel"></i> -->
-            <span>01</span>
-            <h3>Bus from Pune to Hyderabad</h3>
-            <p style="font-size: 15px;">Ticket No : L12344</p>
-            
-            <p style="font-size: 15px;">Seat No : L12344</p>
-            <p style="font-size:25px;"> <a href="#"> Delete </a></p>
-           
-            <!-- <span>11 Nov 2021</span> -->
-
-        </div>
-        <div class="box" data-aos="zoom-in">
-            <!-- <span>11 Nov 2021</span> -->
-            <!-- <i class="fas fa-hotel"></i> -->
-            <span>02</span>
-            <h3>Bus from Pune to Hyderabad</h3>
-            <p style="font-size: 15px;">Ticket No : L12344</p>
-            
-            <p style="font-size: 15px;">Seat No : L12344</p>
-            <p style="font-size:25px;"> <a href="#"> Delete </a></p>
-           
-            <!-- <span>11 Nov 2021</span> -->
-
-        </div>
-        <div class="box" data-aos="zoom-in">
-            <!-- <span>11 Nov 2021</span> -->
-            <!-- <i class="fas fa-hotel"></i> -->
-            <span>03</span>
-            <h3>Bus from Pune to Hyderabad</h3>
-            <p style="font-size: 15px;">Ticket No : L12344</p>
-            
-            <p style="font-size: 15px;">Seat No : L12344</p>
-            <p style="font-size:25px;"> <a href="#"> Delete </a></p>
-           
-            <!-- <span>11 Nov 2021</span> -->
-
-        </div>
-    </div>
-
-</section>
+    </footer>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-<!-- custom js file link  -->
-<script src="js/script.js"></script>
+    <!-- custom js file link  -->
+    <script src="js/script.js"></script>
 
-<script>
+    <script>
+        AOS.init({
+            duration: 800,
+            delay: 400
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
 
-AOS.init({
-    duration:800,
-    delay:400
-});
+    <script src="js/vendor/bootstrap.min.js"></script>
 
-</script>
+    <script src="js/datepicker.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+
+
+            // navigation click actions 
+            $('.scroll-link').on('click', function(event) {
+                event.preventDefault();
+                var sectionID = $(this).attr("data-id");
+                scrollToID('#' + sectionID, 750);
+            });
+            // scroll to top action
+            $('.scroll-top').on('click', function(event) {
+                event.preventDefault();
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
+            });
+            // mobile nav toggle
+            $('#nav-toggle').on('click', function(event) {
+                event.preventDefault();
+                $('#main-nav').toggleClass("open");
+            });
+        });
+        // scroll function
+        function scrollToID(id, speed) {
+            var offSet = 0;
+            var targetOffset = $(id).offset().top - offSet;
+            var mainNav = $('#main-nav');
+            $('html,body').animate({
+                scrollTop: targetOffset
+            }, speed);
+            if (mainNav.hasClass("open")) {
+                mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+                mainNav.removeClass("open");
+            }
+        }
+        if (typeof console === "undefined") {
+            console = {
+                log: function() {}
+            };
+        }
+    </script>
 </body>
+
 </html>
