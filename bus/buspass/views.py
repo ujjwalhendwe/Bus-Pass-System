@@ -153,11 +153,11 @@ def history(request):
             delta=b-a
             delta=delta.days
             if (delta>=0):
-                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
+                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats,status from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
                 y=cursor.fetchall()
                 newdetails.append(y)
             else:
-                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
+                cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats,status from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
                 y=cursor.fetchall()
                 prevdetails.append(y)
         print(newdetails)
