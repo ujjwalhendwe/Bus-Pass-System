@@ -203,8 +203,28 @@ def cancel(request,Ticketno):
                 prevdetails.append(y)
     return render(request,"history.html",{"prevdetails":prevdetails,'newdetails':newdetails}) 
 
-def feedback(request):
-    Rating=request.GET['rate']   
-    feedback=request.GET['feed']
-    print(Rating,feedback)
-    return render(request,"history.html") 
+def profile(request):
+    userid=request.session.get('userid')
+    cursor.execute("select * from user where userid='{}'".format(userid))
+    details=cursor.fetchall()
+    return render(request,"profile.html",{'details':details})
+
+def editprofile(request):
+    userid=request.session.get('userid')
+    cursor.execute("select * from user where userid='{}'".format(userid))
+    details=cursor.fetchall()
+    date=str(details[0][4])
+    return render(request,"editprofile.html",{'details':details,"date":date})
+
+def edit(request):
+    name=request.POST['name']
+    phone=request.POST['phone']
+    gender=request.POST['gender']
+    dob=request.POST['dob']
+    address=request.POST['address']
+    userid=request.session.get('userid')
+    cursor.execute("update user set name='{}', phone='{}',gender='{}',dob='{}',address='{}' where userid='{}'".format(name,phone,gender,dob,address,userid))
+    connection.commit()
+    cursor.execute("select * from user where userid='{}'".format(userid))
+    details=cursor.fetchall()
+    return render(request,"profile.html",{"details":details})
