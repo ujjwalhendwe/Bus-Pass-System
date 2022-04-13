@@ -11,11 +11,12 @@ urlpatterns = [
     path('showbus',views.showbus),
     path('track',views.track),
     path('history',views.history),
-    path('rating',views.rating),
     path('cancel/<Ticketno>',views.cancel),
     path('profile',views.profile),
     path('editprofile',views.editprofile),
     path('edit',views.edit),
-    path('trackbus',views.trackbus)
+    path('trackbus',views.trackbus),
+    path('buspass',views.buspass), 
+    path('passcheck',views.passcheck)
 ]
 

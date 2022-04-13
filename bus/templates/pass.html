@@ -20,8 +20,8 @@
     <form class="row g-3" action="/passcheck" method="post" enctype='multipart/form-data'>
         {% csrf_token %}
           <div class="col-md-6">
-            <label for="FirstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="FirstName" name="FirstName">
+            <label for="FirstName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="Name" name="Name">
           </div>
           <div class="col-md-6">
             <label for="FatherName" class="form-label">Father Name</label>
@@ -63,13 +63,42 @@
               <label for="seniorcitizencertificate" class="form-label">Upload Senior Citizen Certificate </label>
               <input type="file" class="form-control" id="seniorcitizencertificate">
             </div> -->
+            <div class="row mt-2">
+            <div class="col-md-6">
+              <label for="studentid" class="form-label">Are you a student? </label>
+              <select required class="form-control" name="student">
+                <option selected value="Choose"</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
             <div class="col-md-6">
               <label for="studentid" class="form-label">Student Id </label>
-              <input type="text" class="form-control" id="studentid" name="studentid">
+              <input type="file" class="form-control" id="studentid" name="studentid">
+            </div>
+            </div>
+            <div class="row mt-2">
+            <div class="col-md-6">
+              <label for="handicapcertificate" class="form-label">Are you handicapped? </label>
+              <select required class="form-control" name="handicap">
+                <option selected value="Choose"</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             <div class="col-md-6">
               <label for="handicapcertificate" class="form-label">Handicap Certificate </label>
               <input type="file" class="form-control" id="handicapcertificate" name="handicapcertificate">
+            </div>
+            </div>
+            <div class="row mt-2">
+            <div class="col-md-6">
+              <label for="seniorcitizenshipcertificate" class="form-label">Are you a senior citizen? </label>
+              <select required class="form-control" name="senior">
+                <option selected value="Choose"</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             <div class="col-md-6">
               <label for="seniorcitizenshipcertificate" class="form-label">Senior Citizenship Certificate </label>
@@ -78,6 +107,7 @@
             <div class="col-md-12 text-center">
               <button type="submit" class="btn btn-outline-dark btn-lg ">Submit</button>
             </div>
+          </div>
           
     </form></div>
     </body>
