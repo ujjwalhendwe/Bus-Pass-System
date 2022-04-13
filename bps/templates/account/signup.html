@@ -24,9 +24,12 @@
     <div class="form sign-in">
       <h2>Sign In through Account</h2>
       
-      <form class="login" method="POST" action="{% url 'account_login' %}">
+      <form class="login" method="POST" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{ form|crispy }}
+        {% if redirect_field_value %}
+<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+{% endif %}
         <div class="d-grid">
           <button class="primaryAction submit" type="submit">{% trans "Sign Up" %}</button><br>
         </div>
@@ -67,6 +70,3 @@
 
 </html>
 
-<!-- {% if redirect_field_value %}
-<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-{% endif %} -->

@@ -356,6 +356,18 @@ def book(request):
 
 
 def profile(request):
+
+    user=request.user.get_username()
+
+    cursor.execute(''' select userid from user where userid=%s''',(user,))
+    log=cursor.fetchone()
+
+    if log == None:
+        cursor.execute(''' insert into user(userid,name) values(%s,%s)''',(request.user.get_username(),request.user.get_full_name()))
+        connection.commit()
+        cursor.execute('''insert into wallet(userid,walletbalance) values(%s,%s)''',(request.user.get_username(),0))
+        connection.commit()
+
     userid=request.user.get_username()
     cursor.execute('''select * from user where userid=%s''',(userid,))
     details=cursor.fetchall()
@@ -363,6 +375,18 @@ def profile(request):
     return render(request,"profile.html",{'details':details})
 
 def editprofile(request):
+
+    user=request.user.get_username()
+
+    cursor.execute(''' select userid from user where userid=%s''',(user,))
+    log=cursor.fetchone()
+
+    if log == None:
+        cursor.execute(''' insert into user(userid,name) values(%s,%s)''',(request.user.get_username(),request.user.get_full_name()))
+        connection.commit()
+        cursor.execute('''insert into wallet(userid,walletbalance) values(%s,%s)''',(request.user.get_username(),0))
+        connection.commit()
+
     userid=request.user.get_username()
     cursor.execute('''select * from user where userid=%s''',(userid,))
     details=cursor.fetchall()

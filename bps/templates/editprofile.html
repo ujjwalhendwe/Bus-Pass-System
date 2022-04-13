@@ -127,8 +127,15 @@
                             <div class="row mt-2">
                                 <div class="col-md-6"><label class="labels">
                                         <h5>Phone Number</h5>
+                                        {%if details.0.5%}
                                     </label><input type="text" class="form-control" name="phone"
                                         value="{{details.0.5}}"></div>
+                                        {%else%}
+                                    </label><input type="text" class="form-control" name="phone"
+                                        value="0"></div>
+                                        {%endif%}
+
+ 
                                 <div class="col-md-6"><label class="labels">
                                         <h5>Update DOB</h5>
                                     </label><input type="date" class="form-control" name="dob" value="{{date}}"></div>
