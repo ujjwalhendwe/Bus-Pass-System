@@ -1,4 +1,5 @@
 from email import message
+from operator import index
 import re
 from tracemalloc import start
 from django.shortcuts import redirect, render
@@ -288,8 +289,60 @@ def book(request):
 
     bookingid=int(time.time()*1000000)
 
+    cursor.execute(''' select bookedseats from seatavailability where busid=%s and routeid=%s and dateofjourney=%s ''',(busid,routeid,date))
+    bs=cursor.fetchone()
+    bseats=bs[0]
+    seat=""
+
+    cursor.execute('''insert into ticket(bookingid,userid,busid,routeid,dateofjourney,seats,price,transactionid,status) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)''',(bookingid,request.user.get_username(),busid,routeid,date,seats,pricef,bookingid,"Booked"))
+    connection.commit()
+    
+    for index,s in enumerate(seats):
+        if s=='_':
+           seat=seat+seats[index-1]+s+seats[index+1]+" "
+           bseats=bseats+seats[index-1]+s+seats[index+1]+" "
+
+    for index,n in enumerate(name):
+        pid=int(time.time()*1000000+index+1)
+        cursor.execute(''' insert into passengerdetails(passengerid,bookingid,userid,name,age) value(%s,%s,%s,%s,%s)''',(pid,bookingid,request.user.get_username(),n,age[index]))
+        connection.commit()
+
+    cursor.execute(''' update seatavailability set bookedseats=%s  where busid=%s and routeid=%s and dateofjourney=%s ''',(bseats,busid,routeid,date))    
+    connection.commit()
 
 
-    print(bookingid)
+    cursor.execute(''' select startcity, endcity from route where routeid=%s''',(routeid,))
+    details=cursor.fetchone()
 
+    cursor.execute(''' select cityname from city where cityid=%s''',(details[0],))
+    startcity=cursor.fetchone()[0]
 
+    cursor.execute(''' select cityname from city where cityid=%s''',(details[1],))
+    endcity=cursor.fetchone()[0]
+
+    npass=len(name)
+
+    cursor.execute(''' select bspid, registrationno from bus where busid=%s''',(busid,))
+    details=cursor.fetchone()
+
+    bspid=details[0]
+    bregno=details[1]
+
+    cursor.execute(''' select name,phone from bsp where bspid=%s''',(bspid,))
+    details=cursor.fetchone()
+
+    bspname=details[0]
+    phone=details[1]
+
+    cursor.execute(''' select walletbalance from wallet where userid=%s''',(request.user.get_username(),))
+    balance=cursor.fetchone()[0]
+
+    fbalance=int(balance)-int(pricef)
+
+    cursor.execute(''' update wallet set walletbalance=%s where userid=%s''',(fbalance,request.user.get_username()))
+    connection.commit()
+
+    return render(request,'ticket.html',{"bookingid":bookingid,"startcity":startcity,"endcity":endcity,"npass":npass,"seat":seat,"bregno":bregno,"bspname":bspname,"phone":phone,"pricef":pricef,"date":date,"name":name})
+
+def ticket(request):
+    return render(request,'ticket.html')
