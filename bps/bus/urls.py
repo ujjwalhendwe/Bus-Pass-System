@@ -12,6 +12,8 @@ urlpatterns = [
     path('buslist', views.buslist),
     path('seat', views.seat),
     path('payment',views.payment),
-    path('passenger',views.passenger)
+    path('passenger',views.passenger),
+    path('topup',views.topup),
+    path('book',views.book)
 
 ]
