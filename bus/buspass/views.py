@@ -166,9 +166,6 @@ def history(request):
         return render(request,"history.html",{"prevdetails":prevdetails,'newdetails':newdetails}) 
     return render(request,"history.html") 
 
-def rating(request):
-    return render(request,"rating.html") 
-
 def cancel(request,Ticketno):
     cursor.execute("select status from ticket where bookingid='{}'".format(Ticketno))
     status=cursor.fetchall()
@@ -228,3 +225,25 @@ def edit(request):
     cursor.execute("select * from user where userid='{}'".format(userid))
     details=cursor.fetchall()
     return render(request,"profile.html",{"details":details})
+
+def buspass(request):
+    return render(request,"pass.html")
+
+def passcheck(request):
+    userid=request.session.get('userid')
+    name=request.POST['Name']
+    fathername=request.POST['FatherName']
+    aadharno=request.POST['Aadharno']
+    aadhar=request.FILES['Aadhar']
+    city=request.POST['CityId']
+    studentid=request.FILES['studentid']
+    handicapcertificate=request.FILES['handicapcertificate']
+    seniorcitizencertificate=request.FILES['seniorcitizencertificate']
+    fs=FileSystemStorage()
+    file1=fs.save(name+"-"+aadhar.name,aadhar)
+    file2=fs.save(name+"-"+studentid.name,studentid)
+    file3=fs.save(name+"-"+handicapcertificate.name,handicapcertificate)
+    file4=fs.save(name+"-"+seniorcitizencertificate.name,seniorcitizencertificate)
+    cursor.execute("insert into citybuspass(name,fathername,userid,cityid,aadharno,aadharpath,documentpath) values('{}','{}','{}','{}','{}','{}','{}')".format(name,fathername,userid,city,aadharno,name+"-"+aadhar.name,name+"-"+studentid.name+"  "+name+"-"+handicapcertificate.name+"  "+name+"-"+seniorcitizencertificate.name))
+    connection.commit()
+    return render(request,"home.html")
