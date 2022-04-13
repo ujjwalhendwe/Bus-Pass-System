@@ -13,7 +13,9 @@ urlpatterns = [
     path('history',views.history),
     path('rating',views.rating),
     path('cancel/<Ticketno>',views.cancel),
-    path('feedback',views.feedback),
+    path('profile',views.profile),
+    path('editprofile',views.editprofile),
+    path('edit',views.edit),
     path('trackbus',views.trackbus)
 ]
 
