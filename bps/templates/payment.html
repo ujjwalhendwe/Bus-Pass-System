@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+{%load static%}
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -47,100 +47,137 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, .05), 0 4px 8px rgba(0, 0, 0, .04);
         }
     </style>
-    <style>
-        .navbar-expand-lg {
-            /* background-color:white; */
-            /* background-color: #990000; */
+        <style>
+            .navbar-expand-lg  {
+                /* background-color:white; */
+                /* background-color: #990000; */
             /* background-image: linear-gradient(147deg, #990000 0%, #ff0000 74%); */
             background-color: #272822;
-            margin-bottom: 0px;
+             margin-bottom: 0px;
             border-radius: 0px;
+        
+            }
+            
+          
+            .abc:hover{
+                color: rgb(226, 217, 217);
+            }
+            ul{
+                list-style-type: none;
+            }
+            
+          
+            .navbar-expand-lg .navbar-nav .nav-link{
+                padding: 0rem 1.2rem;
+                font-size: 1.7rem;
+                position: relative;
+                text-decoration-line: none;
+            }
+            .navbar-expand-lg .navbar-nav .nav-link{
+                /* border-bottom:1px solid #dd2713; */
+                color: white;
+            
+            } 
+            .navbar-expand-lg .navbar-nav .nav-link:hover{
+                /* border-bottom:1px solid #dd2713; */
+                font-size: 20px;
+                font-weight: 600;
+            } 
+            
+            .navbar-expand-lg .navbar-nav .nav-link.active{
+                border-bottom: 2px solid white;
+                color: white;
+                text-shadow: 0px 1px 2px black;
+            }
+            
+            .navbar-nav .btn{
+                background-color: blue;
+                color: white;
+                border-radius: 6px;
+            
+                font-size: 2rem;
+                /* margin-top: 1px; */
+                
+            }
+            .navbar-nav .btn:hover{
+                background-color: green;
+                box-shadow: 1px 1px 1px blue;
+            }
+            
+        .dropdown-content a:hover {
+            background-color: #ddd;
         }
         
-        .abc:hover {
-            color: rgb(226, 217, 217);
-        }
-        
-        ul {
-            list-style-type: none;
-        }
-        
-        .navbar-expand-lg .navbar-nav .nav-link {
-            padding: 0rem 1.2rem;
-            font-size: 1.7rem;
-            position: relative;
-            text-decoration-line: none;
-        }
-        
-        .navbar-expand-lg .navbar-nav .nav-link {
-            /* border-bottom:1px solid #dd2713; */
-            color: white;
-        }
-        
-        .navbar-expand-lg .navbar-nav .nav-link:hover {
-            /* border-bottom:1px solid #dd2713; */
-            font-size: 20px;
-            font-weight: 600;
-        }
-        
-        .navbar-expand-lg .navbar-nav .nav-link.active {
-            border-bottom: 2px solid white;
-            color: white;
-            text-shadow: 0px 1px 2px black;
-        }
-        
-        .navbar-nav .btn {
-            background-color: blue;
-            color: white;
-            border-radius: 6px;
-            font-size: 2rem;
-            /* margin-top: 1px; */
-        }
-        
-        .navbar-nav .btn:hover {
-            background-color: green;
-            box-shadow: 1px 1px 1px blue;
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: black;">
-        <a class="navbar-brand" href="#"><img src="../static/img/serene.png" height="50" width="100"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Link <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Tickets <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Contact <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle dropbtn" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: red; font-size:21px; margin:2px;">
-                  Dropdown link
-                </a>
-                    <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid afr" >
+         <!--  <nav class="navbar navbar-expand-lg header-nav fixed-top"> 
+              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                 <div class="container-fluid"> -->
+          <a class="navbar-brand" href="#"><img src="{% static 'img/serene.png'%}" width="100" height="50" style="display: block; border: 0px; margin-top:-20px;margin-bottom:0px;" /></a></a>
+          <!--<img src="logo.jpg"> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+    
+          </button>
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" style="font-family: 'Calistoga', cursive;">
+              <li class="nav-item">
+                <a class="nav-link active " aria-current="page" href="/" >Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/track">Track Bus</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/" >City Bus Pass</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/" >Contact</a>
+              </li>
+              {%if user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropbtn" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: red; font-size:21px; margin:2px;">
+              User
+            </a>
+                <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/profile">View Profile</a>
+                    <a class="dropdown-item" href="/editprofile">Edit Profile</a>
+                    <a class="dropdown-item" href="/history">History</a>
+                </div>
+            </li>
+            {%endif%}
+             
             </ul>
-            <span class="navbar-text">
-            <!-- Navbar text with an inline element -->
-            <a href="#" class="btn btn-warning btn-lg active" role="button" aria-pressed="true" style=" background-image: linear-gradient(90deg, #4c76ff 0%, #d537fd 100%); color:white;   box-shadow: 0 0 20px 0 rgba(8, 12, 204, 0.945);">Logout</a>
-          </span>
+            
+    
+    
+            
+          </div>
+          <span class="navbar-text " style="margin-top: 1px;">
+             <!-- <p style="color: aquamarine;">Helllo  hbsdahcbh</p>  -->
+             <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+             {% if user.is_authenticated %}
+                 <a href="{% url 'account_logout' %}"><button class="btn btn1"style=" border: 1px solid #3498db; background:none;color:white;font-size:15px; transition:0.8s; box-shadow:0px 0px 2px white;" >Logout</button></a>
+                 {%else%}
+                 <a href="{% url 'account_login' %}"><button class="btn btn1"style=" border: 1px solid #3498db; background:none;color:white;font-size:15px; transition:0.8s; box-shadow:0px 0px 2px white;">Login</button></a>
+                 <a href="{% url 'account_signup' %}"><button class="btn btn1"style=" border: 1px solid #3498db; background:none;color:white;font-size:15px; transition:0.8s; box-shadow:0px 0px 2px white;">Sign Up</button></a>
+              {% endif %}
+             
+             
+             <!-- <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Logout</a>  -->
+            
+        </span> 
         </div>
-    </nav>
+      </nav>
+
 
     <div class="container ">
         <!-- Modal related content -->

@@ -43,16 +43,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-
-      <div class="container">
-    <form action="/trackbus">
-        <div class="search rounded pb-3 pt-3 px-3 mt-4 mb-5">
-            <div class="row ">
-                <div class="col-md-6">
-                    <label for="busid" class="form-label">Bus ID:</label> <br>
-                    <input class="form-control" type="text" list="Bus list" id="busid" name= "busid" placeholder="Please enter Bus ID">
-=======
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: black;">
         <a class="navbar-brand" href="#"><img src="../static/img/serene.png" height="50" width="100"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,6 +80,15 @@
         </div>
     </nav>
 
+      <div class="container">
+    <form action="/trackbus">
+        <div class="search rounded pb-3 pt-3 px-3 mt-4 mb-5">
+            <div class="row ">
+                <div class="col-md-6">
+                    <label for="busid" class="form-label">Bus ID:</label> <br>
+                    <input class="form-control" type="text" list="Bus list" id="busid" name= "busid" placeholder="Please enter Bus ID">
+    
+
     <div class="container">
         <form action="/trackbus">
             <div class="search rounded pb-3 pt-3 px-3 mt-4 mb-5">
@@ -102,7 +101,6 @@
                         <label for="date" class="form-label">Date of journey:</label>
                         <input type="date" class="form-control" id="date" name="date" placeholder="Enter the date of journey">
                     </div>
->>>>>>> b42ee9984ffcb102338adcf9a8a850a49748f215
                 </div>
                 <div style="text-align: center;" class="mt-4">
                     <button type="submit" class="btn btn-success btn-md">Access Location</button>
@@ -125,25 +123,6 @@
         </form>
     </div>
 
-<<<<<<< HEAD
-        </div>
-        <div class=" p-3 rounded" style="background-color: rgb(207, 204, 200); text-align: center; margin-top: 80px;">
-            {% if info%}
-            <h6>{{info}}<h6>
-            {% else %}
-                {% if details %}
-                <h6>The bus left {{details.1}} at {{details.0}} and will arrival at {{details.3}} at {{details.2}}.<h6>
-                {% elif details1 %}
-                <h6>The bus is at {{details.0}}</h6>    
-                {% else %}
-                <h6></h6>
-                {% endif %}
-            {% endif %}          
-        </div>
-    </form>
-    </div>
-=======
->>>>>>> b42ee9984ffcb102338adcf9a8a850a49748f215
 
     <!-- Optional JavaScript; choose one of the two! -->
 
