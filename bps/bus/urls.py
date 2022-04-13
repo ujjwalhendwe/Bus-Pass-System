@@ -19,6 +19,9 @@ urlpatterns = [
     path('editprofile',views.editprofile),
     path('history',views.history),
     path('cancel',views.cancel),
-    path('rating',views.rating)
+    path('rating',views.rating),
+    path('buspass',views.buspass),
+    path('passcheck',views.passcheck),
+    path("edit",views.edit)
 
 ]

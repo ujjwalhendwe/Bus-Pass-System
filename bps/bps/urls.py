@@ -8,5 +8,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     #path('hemlo/', TemplateView.as_view(template_name='account/temp.html')),
     path('tracking/', TemplateView.as_view(template_name='Trackbus.html')),
-    path('',include('bus.urls'))
+    path('',include('bus.urls')),
+    
 ]

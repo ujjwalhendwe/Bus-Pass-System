@@ -8,6 +8,7 @@ import MySQLdb.cursors
 from datetime import datetime,time
 from django.contrib import messages
 import time
+from django.core.files.storage import FileSystemStorage
 
 import mysql.connector
 from numpy import diff
@@ -449,3 +450,45 @@ def cancel(request,Ticketno):
                 y=cursor.fetchall()
                 prevdetails.append(y)
     return render(request,"history.html",{"prevdetails":prevdetails,'newdetails':newdetails}) 
+def buspass(request):
+    return render(request,"pass.html")
+
+def passcheck(request):
+    userid=request.session.get('userid')
+    name=request.POST['Name']
+    fathername=request.POST['FatherName']
+    aadharno=request.POST['Aadharno']
+    aadhar=request.FILES['Aadhar']
+    city=request.POST['CityId']
+    student=request.POST['student']
+    handicap=request.POST['handicap']
+    senior=request.POST['senior']
+    fs=FileSystemStorage()
+    file1=fs.save(name+"-"+aadhar.name,aadhar)
+    x=""
+    y=""
+    z=""
+    if(student=="Yes"):
+        studentid=request.FILES['studentid']
+        x=name+"-"+studentid.name
+        file2=fs.save(name+"-"+studentid.name,studentid)
+    if(handicap=="Yes"):
+        handicapcertificate=request.FILES['handicapcertificate']
+        y=name+"-"+handicapcertificate.name
+        file3=fs.save(name+"-"+handicapcertificate.name,handicapcertificate)
+    if(senior=="Yes"):
+        seniorcitizencertificate=request.FILES['seniorcitizencertificate']
+        z=name+"-"+seniorcitizencertificate.name
+        file4=fs.save(name+"-"+seniorcitizencertificate.name,seniorcitizencertificate)
+    cursor.execute("insert into citybuspass(name,fathername,userid,cityid,aadharno,aadharpath,documentpath) values('{}','{}','{}','{}','{}','{}','{}')".format(name,fathername,userid,city,aadharno,name+"-"+aadhar.name,x+"  "+y+"  "+z))
+    connection.commit()
+    cursor.execute("select * from citybuspass where userid='{}'".format(userid))
+    details=cursor.fetchall()
+    c=datetime.now()
+    date=c.strftime("%Y:%m:%d")
+    date_format = "%Y:%m:%d"
+    a = datetime.strptime(date, date_format)
+    return render(request,"softcopy.html",{"details":details,"date":date})
+
+def temp(request):
+    return render(request,"home.html")    
