@@ -20,8 +20,8 @@
     <form class="row g-3" action="/passcheck" method="post" enctype='multipart/form-data'>
         {% csrf_token %}
           <div class="col-md-6">
-            <label for="FirstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="FirstName" name="FirstName">
+            <label for="FirstName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="Name" name="Name">
           </div>
           <div class="col-md-6">
             <label for="FatherName" class="form-label">Father Name</label>
@@ -65,7 +65,7 @@
             </div> -->
             <div class="col-md-6">
               <label for="studentid" class="form-label">Student Id </label>
-              <input type="text" class="form-control" id="studentid" name="studentid">
+              <input type="file" class="form-control" id="studentid" name="studentid">
             </div>
             <div class="col-md-6">
               <label for="handicapcertificate" class="form-label">Handicap Certificate </label>
