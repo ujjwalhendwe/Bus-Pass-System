@@ -12,6 +12,44 @@
     <title>Hello, world!</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: black;">
+      <a class="navbar-brand" href="#"><img src="bps/static/img/serene.png" height="50" width="100"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="/" style="color: white; font-size:20px; margin:2px;">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="/track" style="color: white; font-size:20px; margin:2px;">Track bus <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="/pass" style="color: white; font-size:20px; margin:2px;">City Bus Pass <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="/contact" style="color: white; font-size:20px; margin:2px;">Contact <span class="sr-only">(current)</span></a>
+              </li>
+              {%if user.is_authenticated %}
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle dropbtn" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: red; font-size:21px; margin:2px;">
+                 User
+              </a>
+                  <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="/profile">View Profile</a>
+                      <a class="dropdown-item" href="/editprofile">Edit Profile </a>
+                      <a class="dropdown-item" href="/history">History</a>
+                  </div>
+              </li>
+              {%endif%}
+          </ul>
+          <span class="navbar-text">
+          <!-- Navbar text with an inline element -->
+          <a href="#" class="btn btn-warning btn-lg active" role="button" aria-pressed="true" style=" background-image: linear-gradient(90deg, #4c76ff 0%, #d537fd 100%); color:white;   box-shadow: 0 0 20px 0 rgba(8, 12, 204, 0.945);">Logout</a>
+        </span>
+      </div>
+  </nav>
       <div class="container text-center" id="heading" >
         City Bus Pass Application Form
       </div>
