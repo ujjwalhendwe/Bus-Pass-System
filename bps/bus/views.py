@@ -432,7 +432,7 @@ def history(request):
                 cursor.execute("select bookingid,startcity,endcity,dateofjourney,seats,status from ticket join route where userid='{}' and dateofjourney='{}' and route.routeid=ticket.routeid".format(userid,i[0]))
                 y=cursor.fetchall()
                 prevdetails.append(y)
-        print(type(prevdetails[0][0]))
+        #print(type(prevdetails[0][0]))
         #print(prevdetails)
 
         return render(request,"history.html",{"prevdetails":prevdetails,'newdetails':newdetails}) 
@@ -478,7 +478,22 @@ def buspass(request):
     return render(request,"pass.html")
 
 def passcheck(request):
-    userid=request.session.get('userid')
+
+    if not request.user.is_authenticated:
+        messages.info(request, 'Login before booking tickets')
+        return redirect('/')
+
+    user=str(request.user)   
+
+    cursor.execute(''' select userid from user where userid=%s''',(user,))
+    log=cursor.fetchone()
+
+    if log == None:
+        cursor.execute(''' insert into user(userid,name) values(%s,%s)''',(request.user.get_username(),request.user.get_full_name()))
+        connection.commit()
+        cursor.execute('''insert into wallet(userid,walletbalance) values(%s,%s)''',(request.user.get_username(),0))
+        connection.commit()
+    userid=request.user.get_username()
     name=request.POST['Name']
     fathername=request.POST['FatherName']
     aadharno=request.POST['Aadharno']

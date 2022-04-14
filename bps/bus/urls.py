@@ -18,7 +18,7 @@ urlpatterns = [
     path('profile',views.profile),
     path('editprofile',views.editprofile),
     path('history',views.history),
-    path('cancel',views.cancel),
+    path('cancel/<Ticketno>',views.cancel),
     path('rating',views.rating),
     path('buspass',views.buspass),
     path('passcheck',views.passcheck),
