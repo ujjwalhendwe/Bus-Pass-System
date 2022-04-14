@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    {%load static%}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -834,16 +835,15 @@ a:hover{
 </style>
 </head>
 
-<body>
+<body style="background-color: #46494a;">
     
 <!-- header section starts  -->
 
-<header class="header">
+<header class="header" style="background-color: black;">
 
-    <a href="#" class="logo"> <i class="fas fa-paper-plane"></i> travel </a>
+    <a href="/" class="logo"> <img src="{% static 'img/serene.png' %}" height="50" width="100"alt="">  </a>
 
     <div class="icons">
-        <div class="fas fa-search" id="search-btn"></div>
         <!-- <div class="fas fa-user" id="login-btn"></div> -->
         <div class="fas fa-moon" id="theme-btn"></div>
         <div class="fas fa-user" id="login-btn"></div>
@@ -877,7 +877,7 @@ a:hover{
 
     <h1 class="heading"> our <span>services</span> </h1>
               <!-- <h1 style="font-size: 50px;"> Our Services</h1> -->
-              <h1 class="heading"> <span>Previous</span> </h1>
+              <h1 class="heading" style="color: white;"> <span>Previous</span> </h1>
 
     {% for i in prevdetails %}
     <div class="box-container">
@@ -904,7 +904,7 @@ a:hover{
     {% endfor %}
 
               <!-- <h1 style="font-size: 50px;"> Our Services</h1> -->
-              <h1 class="heading"> <span>Coming</span> </h1>
+              <h1 class="heading" style="color: white;"> <span>Coming</span> </h1>
 
     {% for i in newdetails %}
         <div class="box-container">

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+{% load static %}
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -81,7 +81,7 @@
             transform: scale(1.0);
             box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
         }
-
+      
         .cont:hover,
         button:hover {
             transform: scale(1.03);
@@ -90,10 +90,47 @@
     </style>
 </head>
 
-<body>
-
+<body style="background-color: #46494a;">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: black;">
+        <a class="navbar-brand" href="#"><img src="{% static 'img/serene.png' %}" height="50" width="100"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/" style="color: white; font-size:20px; margin:2px;">Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/track" style="color: white; font-size:20px; margin:2px;">Track bus </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/buspass" style="color: white; font-size:20px; margin:2px;">City Bus Pass </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/contact" style="color: white; font-size:20px; margin:2px;">Contact </a>
+                </li>
+                {%if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle dropbtn" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: whitesmoke; font-size:21px; margin:2px;">
+                   User
+                </a>
+                    <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/profile">View Profile</a>
+                        <a class="dropdown-item" href="/editprofile">Edit Profile </a>
+                        <a class="dropdown-item" href="/history">History</a>
+                    </div>
+                </li>
+                {%endif%}
+            </ul>
+            <span class="navbar-text">
+            <!-- Navbar text with an inline element -->
+            <a href="#" class="btn btn-warning btn-lg active" role="button" aria-pressed="true" style=" background-color: #ffe165; color:rgb(6, 6, 6);   box-shadow: 0 0 20px 0 rgba(8, 12, 204, 0.945);">Logout</a>
+          </span>
+        </div>
+    </nav>
     <div class="mt-3 container-fluid text-center">
-        <button class="btn btn-lg btn-danger">
+        <button class="btn btn-lg butto" style="background-color: #ffe165; color: #46494a;" >
             <h4>Profile settings</h4>
         </button>
     </div>
@@ -153,7 +190,7 @@
                                 <div class="col-md-6"><label class="labels">
                                         <h5>Address</h5>
                                     </label><input type="text" class="form-control" name="address" value="{{details.0.3}} "></div>
-                                <div class=" text-center pt-5"><button class="btn btn-success btn-lg" type="submit">Save
+                                <div class=" text-center pt-5"><button class="btn  btn-lg" style="background-color: #ffe165; color: #46494a; font-weight: bold;" type="submit">Save
                                         Profile</button>
                                 </div>
                             </div>
