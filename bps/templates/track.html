@@ -83,21 +83,12 @@
     </nav>
 
       <div class="container">
-    <form action="/trackbus">
-        <div class="search rounded pb-3 pt-3 px-3 mt-4 mb-5">
-            <div class="row ">
-                <div class="col-md-6">
-                    <label for="busid" class="form-label">Bus ID:</label> <br>
-                    <input class="form-control" type="text" list="Bus list" id="busid" name= "busid" placeholder="Please enter Bus ID">
-    
-
-    <div class="container">
         <form action="/trackbus">
             <div class="search rounded pb-3 pt-3 px-3 mt-4 mb-5">
                 <div class="row ">
                     <div class="col-md-6">
                         <label for="busid" class="form-label">Bus ID:</label> <br>
-                        <input class="form-control" type="text" list="Bus list" id="busid" name="busid" placeholder="Please enter Bus ID">
+                        <input class="form-control" type="text" list="Bus list" id="busid" name= "busid" placeholder="Please enter Bus ID">
                     </div>
                     <div class="col-md-6">
                         <label for="date" class="form-label">Date of journey:</label>
@@ -107,20 +98,20 @@
                 <div style="text-align: center;" class="mt-4">
                     <button type="submit" class="btn btn-success btn-md">Access Location</button>
                 </div>
-
+    
             </div>
             <div class=" p-3 rounded" style="background-color: rgb(207, 204, 200); text-align: center; margin-top: 80px;">
                 {% if info%}
-                <h6>{{info}}
-                    <h6>
-                        {% else %} {% if details %}
-                        <h6>The bus left {{details.1}} at {{details.0}} and will arrival at {{details.3}} at {{details.2}}.
-                            <h6>
-                                {% elif details1 %}
-                                <h6>The bus is at {{details.0}}</h6>
-                                {% else %}
-                                <h6></h6>
-                                {% endif %} {% endif %}
+                <h6>{{info}}<h6>
+                {% else %}
+                    {% if details %}
+                    <h6>The bus left {{details.1}} at {{details.0}} and will arrival at {{details.3}} at {{details.2}}.<h6>
+                    {% elif details1 %}
+                    <h6>The bus is at {{details.0}}</h6>    
+                    {% else %}
+                    <h6></h6>
+                    {% endif %}
+                {% endif %}          
             </div>
         </form>
     </div>

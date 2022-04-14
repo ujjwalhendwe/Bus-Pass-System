@@ -30,27 +30,29 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/" style="color: white; font-size:20px; margin:2px;">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Link <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/track" style="color: white; font-size:20px; margin:2px;">Track bus <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Tickets <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/pass" style="color: white; font-size:20px; margin:2px;">City Bus Pass <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" style="color: white; font-size:20px; margin:2px;">Contact <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/contact" style="color: white; font-size:20px; margin:2px;">Contact <span class="sr-only">(current)</span></a>
                 </li>
+                {%if user.is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle dropbtn" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: red; font-size:21px; margin:2px;">
-                  Dropdown link
+                   User
                 </a>
                     <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="/profile">View Profile</a>
+                        <a class="dropdown-item" href="/editprofile">Edit Profile </a>
+                        <a class="dropdown-item" href="/history">History</a>
                     </div>
                 </li>
+                {%endif%}
             </ul>
             <span class="navbar-text">
             <!-- Navbar text with an inline element -->
