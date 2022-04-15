@@ -13,10 +13,10 @@ from django.core.files.storage import FileSystemStorage
 import mysql.connector
 from numpy import diff
 
- main
-connection=mysql.connector.connect(host="localhost",user="root",password="Sakshi@174",database="buspasssystem")
 
-connection=mysql.connector.connect(host="localhost",user="root",password="M25SQLpradeep",database="buspasssystem") main
+connection=mysql.connector.connect(host="localhost",user="root",password="harsh",database="buspasssystem")
+
+#connection=mysql.connector.connect(host="localhost",user="root",password="M25SQLpradeep",database="buspasssystem")
 cursor=connection.cursor(buffered=True)
 
 # Create your views here.
@@ -187,6 +187,7 @@ def buslist(request):
         temp1[index]=temp3
 
     buses=tuple(temp1)    
+    print(buses)
 
     return render(request,"buslist.html",{"buses":buses})
 
@@ -232,7 +233,12 @@ def payment(request):
     cursor.execute(''' select walletbalance from wallet where userid=%s''',(request.user.get_username(),))
     balance=cursor.fetchall()
 
-    return render(request, "payment.html",{"seats":seats, "price":price, "pricef":pricef,"routeid":routeid,"busid":busid,"date":date, "balance":balance[0][0]})
+    check=False
+
+    if balance[0][0] > pricef:
+        check=True
+
+    return render(request, "payment.html",{"seats":seats, "price":price, "pricef":pricef,"routeid":routeid,"busid":busid,"date":date, "balance":balance[0][0], "check":check})
 
 def passenger(request):
     pricef=request.POST['pricef']
@@ -532,5 +538,5 @@ def passcheck(request):
     a = datetime.strptime(date, date_format)
     return render(request,"softcopy.html",{"details":details,"date":date})
 
-def temp(request):
-    return render(request,"home.html")    
+def contact(request):
+    return render(request,"contact.html")    

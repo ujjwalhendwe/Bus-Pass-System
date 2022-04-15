@@ -129,14 +129,14 @@
                 <a class="nav-link" href="/track">Track Bus</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/" >City Bus Pass</a>
+                <a class="nav-link" href="/buspass" >City Bus Pass</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/contact" >Contact</a>
               </li>
               {%if user.is_authenticated %}
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle dropbtn" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: red; font-size:21px; margin:2px;">
+                <a class="nav-link dropdown-toggle dropbtn" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #FFBF00; font-size:21px; margin:2px;">
               User
             </a>
                 <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdownMenuLink">
@@ -188,7 +188,7 @@
                             </ul>
                         </div>
                         <div class="page-direction-button">
-                            <a href="contact.html"><i class="fa fa-phone"></i>Contact Us Now</a>
+                            <a href="/contact"><i class="fa fa-phone"></i>Contact Us Now</a>
                         </div>
                     </div>
                 </div>
@@ -518,18 +518,31 @@
     </section>
 
 
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted" >
-    <!-- Section: Social media -->
-   
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: black;">
-      <p style="color: #FFBF00;">© 2022 Copyright: <a class="text-reset fw-bold" href="#"style="color:#FFBF00;text-decoration:none;">Seren Bus.com</a></p>
-      
-    </div>
-    <!-- Copyright -->
-  </footer>
-  <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="primary-button">
+                        <a href="#" class="scroll-top">Back To Top</a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/tooplate"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-12">
+                    <p>Copyright &copy; 2022 Serene Bus</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
 
 
 

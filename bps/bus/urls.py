@@ -22,6 +22,7 @@ urlpatterns = [
     path('rating',views.rating),
     path('buspass',views.buspass),
     path('passcheck',views.passcheck),
-    path("edit",views.edit)
+    path("edit",views.edit),
+    path("contact",views.contact)
 
 ]
