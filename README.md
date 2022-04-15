@@ -37,7 +37,7 @@ Then open terminal and run following commands
   python manage.py runserver
 ```
 In your browser run this http://127.0.0.1:8000/. Now you can see 
-homepage of Buss Pass System. Firstly Sign in through google or facbook.
+homepage of Bus Pass System. Firstly Sign in through google or facbook.
 Then you can look for buses by entering routes on check availability 
 box on homepage. After this you can see tickets as well as seat arrangement, 
 where you can see which seats are book and accordingly you can select your seat.
