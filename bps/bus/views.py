@@ -290,7 +290,12 @@ def topup(request):
     cursor.execute(''' select walletbalance from wallet where userid=%s''',(request.user.get_username(),))
     balance=cursor.fetchall()
 
-    return render(request,'payment.html',{"seats":seats,"pricef":pricef, "price":price,"routeid":routeid,"busid":busid,"date":date,"balance":balance[0][0]})
+    check=False
+
+    if balance[0][0] > int(pricef):
+        check=True
+
+    return render(request,'payment.html',{"seats":seats,"pricef":pricef, "price":price,"routeid":routeid,"busid":busid,"date":date,"balance":balance[0][0],"check":check})
 
 def book(request):
 
