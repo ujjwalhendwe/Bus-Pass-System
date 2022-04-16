@@ -16,7 +16,7 @@ from numpy import diff
 
 #connection=mysql.connector.connect(host="localhost",user="root",password="harsh",database="buspasssystem")
 
-connection=mysql.connector.connect(host="localhost",user="root",password="M25SQLpradeep",database="buspasssystem")
+connection=mysql.connector.connect(host="localhost",user="root",password="harsh",database="buspasssystem")
 cursor=connection.cursor(buffered=True)
 
 # Create your views here.
