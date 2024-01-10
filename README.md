@@ -10,6 +10,7 @@
 - Sakshi Mahajan
 - Pradeep Reddy
 - Ujjwal Hendwe
+- Sanidhya Kumar
 
 ## Description
 This system will help user to book bus tickets and to get 
